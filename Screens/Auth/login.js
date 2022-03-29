@@ -74,7 +74,7 @@ const login = props => {
                 label={'Log in'}
                 height={50}
                 lblSize={font5}
-                onClick={() => dispatch(sessionLogin({id: 1}))}
+                // onClick={() => dispatch(sessionLogin({id: 1}))}
                 borderRadius={30}
                 backgroundColor={'yellow'}
                 fill={'#000'}
