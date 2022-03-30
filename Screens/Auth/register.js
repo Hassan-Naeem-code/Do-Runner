@@ -14,16 +14,11 @@ import {fontGrayLight, gray, white} from '../../Utils/colors';
 import {font4, font5, font6, font8} from '../../Utils/fontSize';
 import {tick} from '../../Utils/images';
 import CheckBox from '@react-native-community/checkbox';
+import LoadingButton from '../../Components/loadingButton';
 import axios from 'axios';
-import RNFetchBlob from 'react-native-fetch-blob';
 import {register} from '../../services/api';
 import {postApi} from '../../services/apiFunction';
 import toast from 'react-native-simple-toast';
-// import * as https from 'https';
-// At request level
-const agent = new https.Agent({
-  rejectUnauthorized: false,
-});
 
 const Register = props => {
   const [name, setName] = useState('');
@@ -31,6 +26,7 @@ const Register = props => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
+  const [loading, setLoading] = useState(false);
   const registerUser = async () => {
     console.log('function called');
     let data = {
@@ -40,42 +36,18 @@ const Register = props => {
       role_id: 1,
     };
     if (name !== '' || email !== '' || password !== '') {
+      setLoading(!loading);
       console.log('data', data);
-      // fetch('https://qraftsman.wepsol.pk/api/' + register, {
-      //   method: 'POST',
-      //   crossDomain: true,
-      //   headers: {
-      //     Accept: 'application/json',
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: data,
-      // })
-      //   .then(response => response.json())
-      //   .then(responseJson => {
-      //     console.log(JSON.stringify(responseJson));
-      //   })
-      //   .catch(err => {
-      //     console.log(err.toString());
-      //   });
-      // RNFetchBlob.config({
-      //   trusty: true,
-      // })
-      //   .fetch('POST', 'https://qraftsman.wepsol.pk/api/' + register, data)
-      //   .then(resp => {
-      //     console.log('resp', resp);
-      //   })
-      //   .catch(err => {
-      //     console.log('error', err);
-      //   });
       const result = await axios.post(
         'https://qraftsman.wepsol.pk/api/' + register,
         data,
-        {httpsAgent: agent},
       );
       // const result = await postApi(register, data);
       console.log('result', result);
+      setLoading(!loading);
       toast.show('Register SuccessFully');
     } else {
+      setLoading(false);
       console.log('Fill Data');
       toast.show('Please Fill The Fields First');
     }
@@ -158,11 +130,11 @@ const Register = props => {
 
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Enter Your Name *
+            Ange ditt namn *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Lorem Ipsum'}
+            placeholder={'Ange ditt namn'}
             // borderRadius={25}
             height={50}
             onchange={setName}
@@ -174,11 +146,11 @@ const Register = props => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Enter Your Email *
+            Skriv in din e-postadress *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Lorem Ipsum'}
+            placeholder={'Skriv in din e-postadress'}
             // borderRadius={25}
             height={50}
             onchange={setEmail}
@@ -189,10 +161,10 @@ const Register = props => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>Password *</Text>
+          <Text style={{fontSize: font4, marginBottom: 10}}>Lösenord *</Text>
           <Textinput
             type={'normal'}
-            placeholder={'Lorem Ipsum'}
+            placeholder={'Lösenord'}
             // borderRadius={25}
             height={50}
             onchange={setPassword}
@@ -205,11 +177,11 @@ const Register = props => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Confirm Password *
+            Bekräfta lösenord *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Lorem Ipsum'}
+            placeholder={'Bekräfta lösenord'}
             // borderRadius={25}
             height={50}
             onchange={setConfirmPassword}
@@ -240,23 +212,31 @@ const Register = props => {
               width: '90%',
               marginLeft: 10,
             }}>
-            Lorem Ipsum Ipsum. Lorem Ipsum Ipsum. Lorem Ipsum Ipsum. Lorem Ipsum
-            Ipsum.Lorem Ipsum Ipsum. Lorem Ipsum Ipsum. Lorem Ipsum Ipsum. Lorem
-            Ipsum Ipsum.
+            Jag accepterar och godkänner integritetspolicyn och villkoren.
           </Text>
         </View>
         <View style={{marginHorizontal: 30, marginBottom: 10}}>
-          <PrimaryButton
-            label={'Register'}
-            height={50}
-            lblSize={font5}
-            onClick={() => {
-              registerUser();
-            }}
-            borderRadius={30}
-            backgroundColor={'yellow'}
-            fill={'#000'}
-          />
+          {loading ? (
+            <LoadingButton
+              height={50}
+              lblSize={font5}
+              borderRadius={30}
+              backgroundColor={'yellow'}
+              fill={'#000'}
+            />
+          ) : (
+            <PrimaryButton
+              label={'Register'}
+              height={50}
+              lblSize={font5}
+              onClick={() => {
+                registerUser();
+              }}
+              borderRadius={30}
+              backgroundColor={'yellow'}
+              fill={'#000'}
+            />
+          )}
         </View>
       </ScrollView>
     </View>

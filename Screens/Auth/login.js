@@ -12,12 +12,42 @@ import PrimaryButton from '../../Components/primaryButton';
 import {fontGrayLight, gray, white} from '../../Utils/colors';
 import {font4, font5, font6, font8} from '../../Utils/fontSize';
 import {connect, useDispatch, useSelector} from 'react-redux';
+import LoadingButton from '../../Components/loadingButton';
 import {sessionLogin} from '../../Redux/actions/authActions';
+import axios from 'axios';
+import {loginUser} from '../../services/api';
+import {postApi} from '../../services/apiFunction';
+import toast from 'react-native-simple-toast';
+
 const login = props => {
-  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const loginSession = useSelector(state => state.authReducers.loginSession);
+  const loginUser = async () => {
+    console.log('function called');
+    let data = {
+      email,
+      password,
+    };
+    if (email !== '' || password !== '') {
+      setLoading(!loading);
+      console.log('data', data);
+      const result = await axios.post(
+        'https://qraftsman.wepsol.pk/api/' + loginUser,
+        data,
+      );
+      // const result = await postApi(register, data);
+      console.log('result', result);
+      setLoading(!loading);
+      toast.show('Login SuccessFully');
+    } else {
+      setLoading(false);
+      console.log('Fill Data');
+      toast.show('Please Fill The Fields First');
+    }
+  };
   return (
     <View style={{flex: 1}}>
       <ImageBackground
@@ -49,36 +79,47 @@ const login = props => {
             <View style={{marginTop: 10}}>
               <Textinput
                 type={'normal'}
-                placeholder={'Lorem Ipsum'}
+                placeholder={'Skriv in din e-postadress'}
                 borderRadius={25}
                 height={50}
-                onchange={setPhone}
-                value={phone}
-                txtcolor={white}
+                onchange={setEmail}
+                value={email}
+                txtcolor={'#000'}
               />
             </View>
             <View style={{marginTop: 20}}>
               <Textinput
                 type={'normal'}
-                placeholder={'Lorem Ipsum'}
+                placeholder={'Lösenord'}
                 borderRadius={25}
                 height={50}
                 onchange={setPassword}
                 value={password}
-                txtcolor={white}
+                txtcolor={'#000'}
                 // backColor={gray}
               />
             </View>
             <View style={{marginTop: 20}}>
-              <PrimaryButton
-                label={'Log in'}
-                height={50}
-                lblSize={font5}
-                // onClick={() => dispatch(sessionLogin({id: 1}))}
-                borderRadius={30}
-                backgroundColor={'yellow'}
-                fill={'#000'}
-              />
+              {loading ? (
+                <LoadingButton
+                  height={50}
+                  lblSize={font5}
+                  borderRadius={30}
+                  backgroundColor={'yellow'}
+                  fill={'#000'}
+                />
+              ) : (
+                <PrimaryButton
+                  label={'Log in'}
+                  height={50}
+                  lblSize={font5}
+                  // onClick={() => dispatch(sessionLogin({id: 1}))}
+                  onClick={() => loginUser()}
+                  borderRadius={30}
+                  backgroundColor={'yellow'}
+                  fill={'#000'}
+                />
+              )}
             </View>
             <View style={{marginTop: 20}}>
               <PrimaryButton
