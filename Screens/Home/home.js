@@ -8,6 +8,7 @@ import {
   TouchableHighlight,
   FlatList,
 } from 'react-native';
+import {useSelector} from 'react-redux';
 import PrimaryButton from '../../Components/primaryButton';
 import {
   font_black,
@@ -62,8 +63,9 @@ const Home = () => {
   const [option, setOption] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
   const [filterBool, setfilterBool] = useState(false);
+  const loginSession = useSelector(state => state.authReducers.user);
   const renderItem = ({item}) => <Card />;
-
+  console.log('loginSession', loginSession);
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: white}}>
       <Modal
@@ -80,7 +82,7 @@ const Home = () => {
           />
         </View>
         <Text style={{marginTop: 10, fontFamily: medium, fontSize: font8}}>
-          Valkommen tillbaka
+          {loginSession?.name}
         </Text>
 
         <ScrollView
