@@ -4,33 +4,38 @@ const initial_state = {
   my_token: null,
   walkthrough: null,
   loading: false,
-  currentOrientation: "PORTRAIT",
+  currentOrientation: 'PORTRAIT',
   notify_Count: 0,
-  loadingStatus: "",
+  loadingStatus: '',
 };
 
 const reducer = (state = initial_state, action) => {
   switch (action.type) {
-    case "UPDATE_USER": {
-      return { ...state, user: action.user };
+    case 'UPDATE_USER': {
+      return {...state, user: action.user};
     }
-    case "LOGIN_SESSION": {
-      return { ...state, loginSession: action.loginSession };
+    case 'LOGIN_SESSION': {
+      return {
+        ...state,
+        loginSession: action.loginSession,
+        user: action.loginSession,
+        my_token: action.loginSession.token,
+      };
     }
-    case "UPDATE_TOKEN": {
-      return { ...state, my_token: action.my_token };
+    case 'UPDATE_TOKEN': {
+      return {...state, my_token: action.my_token};
     }
-    case "WALKTHROUGH": {
-      return { ...state, walkthrough: action.walkthrough };
+    case 'WALKTHROUGH': {
+      return {...state, walkthrough: action.walkthrough};
     }
-    case "SHOW_LOADER":
-      return { ...state, loading: action.loading };
-    case "LOADER_STATUS":
-      return { ...state, loadingStatus: action.loadingStatus };
-    case "Notification_Count":
-      return { ...state, notify_Count: action.payload };
-    case "ORIENTATION_UPDATE": {
-      return { ...state, currentOrientation: action.currentOrientation };
+    case 'SHOW_LOADER':
+      return {...state, loading: action.loading};
+    case 'LOADER_STATUS':
+      return {...state, loadingStatus: action.loadingStatus};
+    case 'Notification_Count':
+      return {...state, notify_Count: action.payload};
+    case 'ORIENTATION_UPDATE': {
+      return {...state, currentOrientation: action.currentOrientation};
     }
     default: {
       return state;

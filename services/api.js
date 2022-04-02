@@ -1,2 +1,2 @@
-export const register = 'client/register';
-export const loginUser = 'login';
+export const registerCustomer = 'customer/register';
+export const userLogin = 'login';

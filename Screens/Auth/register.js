@@ -15,12 +15,11 @@ import {font4, font5, font6, font8} from '../../Utils/fontSize';
 import {tick} from '../../Utils/images';
 import CheckBox from '@react-native-community/checkbox';
 import LoadingButton from '../../Components/loadingButton';
-import axios from 'axios';
-import {register} from '../../services/api';
+import {registerCustomer} from '../../services/api';
 import {postApi} from '../../services/apiFunction';
 import toast from 'react-native-simple-toast';
 
-const Register = props => {
+const Register = ({navigation}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,15 +36,18 @@ const Register = props => {
     };
     if (name !== '' || email !== '' || password !== '') {
       setLoading(!loading);
-      console.log('data', data);
-      const result = await axios.post(
-        'https://qraftsman.wepsol.pk/api/' + register,
+      console.log(
+        'data',
         data,
+        'url',
+        'https://qraftsman.wepsol.pk/api/' + registerCustomer,
       );
-      // const result = await postApi(register, data);
-      console.log('result', result);
-      setLoading(!loading);
-      toast.show('Register SuccessFully');
+      const {message, success, user} = await postApi(registerCustomer, data);
+      if (success) {
+        toast.show(message);
+        navigation.goBack();
+      }
+      setLoading(false);
     } else {
       setLoading(false);
       console.log('Fill Data');

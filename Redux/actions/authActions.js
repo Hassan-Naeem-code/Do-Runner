@@ -1,6 +1,3 @@
-import {Api} from '../../APIs/interceptor';
-import * as actionTypes from './types';
-
 const sessionLogin = loginSession => {
   return {
     type: 'LOGIN_SESSION',

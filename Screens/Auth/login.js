@@ -14,8 +14,7 @@ import {font4, font5, font6, font8} from '../../Utils/fontSize';
 import {connect, useDispatch, useSelector} from 'react-redux';
 import LoadingButton from '../../Components/loadingButton';
 import {sessionLogin} from '../../Redux/actions/authActions';
-import axios from 'axios';
-import {loginUser} from '../../services/api';
+import {userLogin} from '../../services/api';
 import {postApi} from '../../services/apiFunction';
 import toast from 'react-native-simple-toast';
 
@@ -34,14 +33,12 @@ const login = props => {
     if (email !== '' || password !== '') {
       setLoading(!loading);
       console.log('data', data);
-      const result = await axios.post(
-        'https://qraftsman.wepsol.pk/api/' + loginUser,
-        data,
-      );
-      // const result = await postApi(register, data);
-      console.log('result', result);
-      setLoading(!loading);
-      toast.show('Login SuccessFully');
+      const {message, success, user} = await postApi(userLogin, data);
+      if (success) {
+        setLoading(false);
+        dispatch(sessionLogin(user));
+        toast.show(message);
+      }
     } else {
       setLoading(false);
       console.log('Fill Data');
@@ -84,7 +81,7 @@ const login = props => {
                 height={50}
                 onchange={setEmail}
                 value={email}
-                txtcolor={'#000'}
+                txtcolor={white}
               />
             </View>
             <View style={{marginTop: 20}}>
@@ -95,7 +92,8 @@ const login = props => {
                 height={50}
                 onchange={setPassword}
                 value={password}
-                txtcolor={'#000'}
+                txtcolor={white}
+                secureTextEntry={true}
                 // backColor={gray}
               />
             </View>
@@ -113,7 +111,6 @@ const login = props => {
                   label={'Log in'}
                   height={50}
                   lblSize={font5}
-                  // onClick={() => dispatch(sessionLogin({id: 1}))}
                   onClick={() => loginUser()}
                   borderRadius={30}
                   backgroundColor={'yellow'}
