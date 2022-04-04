@@ -27,13 +27,24 @@ export const postApi = async (url, data, navigate_url, navigate) => {
   }
 };
 
-export const getApi = async url => {
+export const getApi = async (url, token) => {
   try {
-    const response = await axios.get(url);
-    if (response.status === 200) {
-      return response.data;
+    if (token) {
+      const response = await axios.get(url, {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      });
+      if (response.status === 200) {
+        return response?.data;
+      }
+    } else {
+      const response = await axios.get(url);
+      if (response.status === 200) {
+        return response?.data;
+      }
     }
   } catch (error) {
-    return error.response.data;
+    return error;
   }
 };

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -16,6 +16,7 @@ import {
   secondary,
   white,
 } from '../../Utils/colors';
+import {useSelector} from 'react-redux';
 import {bold, medium} from '../../Utils/fontFamily';
 import {font4, font5, font6, font7, font8} from '../../Utils/fontSize';
 import {
@@ -29,9 +30,30 @@ import {
 import Map from '../../Components/map';
 import styles from './css';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
-const Detail = props => {
+import {postDet} from '../../services/api';
+import {getApi} from '../../services/apiFunction';
+
+const Detail = ({navigation, route}) => {
+  const {id} = route.params;
   const [fav, setFav] = useState(false);
   const [eyebool, setEyebool] = useState(false);
+  const [postDetail, setPostDetail] = useState({});
+  const loginSession = useSelector(state => state.authReducers.user);
+  const getPostDetail = async id => {
+    console.log(
+      'postDetail + id, loginSession?.token',
+      postDetail + id,
+      loginSession?.token,
+    );
+    const result = await getApi(postDet + id, loginSession?.token);
+    console.log('result', result?.data);
+    if (result && result?.data) {
+      setPostDetail(result?.data);
+    }
+  };
+  useEffect(() => {
+    getPostDetail(id);
+  }, []);
   return (
     <SafeAreaView style={styles.main}>
       <CommonHeader title={'Uppdrag'} />
@@ -40,7 +62,7 @@ const Detail = props => {
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <View style={{flex: 1}}>
               <Text style={{fontFamily: medium, fontSize: font4}}>
-                BYGGA ALTAN
+                {postDetail?.name}
               </Text>
             </View>
             <View
@@ -73,7 +95,7 @@ const Detail = props => {
             </View>
           </View>
           <Text style={{fontFamily: bold, fontSize: font8, color: font_black}}>
-            Byggnation av en stor altan 90Kvm, Djurhamn
+            {postDetail?.company?.description}
           </Text>
 
           <View style={{flexDirection: 'row', flexWrap: 'wrap', marginTop: 20}}>
@@ -101,7 +123,7 @@ const Detail = props => {
               style={styles.detailClipView}>
               <>
                 <Image style={{width: 15, height: 15}} source={location} />
-                <Text style={styles.detailClip}>Varmdo kommun, Djurhamn</Text>
+                <Text style={styles.detailClip}>{postDetail?.location}</Text>
               </>
             </TouchableHighlight>
             <TouchableHighlight
@@ -110,7 +132,9 @@ const Detail = props => {
               style={styles.detailClipView}>
               <>
                 <Image style={{width: 15, height: 15}} source={dollar_bag} />
-                <Text style={styles.detailClip}>39 960 - 59 940 kr</Text>
+                <Text style={styles.detailClip}>
+                  {postDetail?.latitude} - {postDetail?.longitude} kr
+                </Text>
               </>
             </TouchableHighlight>
           </View>
@@ -125,7 +149,7 @@ const Detail = props => {
           <Map />
         </View>
 
-        <View style={{padding: 10,marginBottom:'15%'}}>
+        <View style={{padding: 10, marginBottom: '15%'}}>
           <Text
             style={{
               marginTop: 10,
@@ -133,19 +157,11 @@ const Detail = props => {
               fontSize: font5,
               letterSpacing: 1,
             }}>
-            BYGGA ALTAN
+            {postDetail?.company?.name}
           </Text>
           <Text
             style={{fontFamily: medium, fontSize: font4, color: font_black}}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
+            {postDetail?.company?.description}
           </Text>
 
           <View style={{marginTop: 20}}>

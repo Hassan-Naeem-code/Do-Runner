@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -36,6 +36,9 @@ import {
 import Card from './components/card';
 import Modal from './components/modal';
 import styles from './css';
+import {getAllPosts} from '../../services/api';
+import {getApi} from '../../services/apiFunction';
+
 let arr = [
   {
     id: 1,
@@ -63,9 +66,20 @@ const Home = () => {
   const [option, setOption] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
   const [filterBool, setfilterBool] = useState(false);
+  const [allPosts, setAllPosts] = useState([]);
   const loginSession = useSelector(state => state.authReducers.user);
-  const renderItem = ({item}) => <Card />;
+  const renderItem = ({item}) => <Card item={item} />;
   console.log('loginSession', loginSession);
+  const getPosts = async () => {
+    const result = await getApi(getAllPosts, loginSession?.token);
+    console.log('result of post api', result);
+    if (result && result.data.length > 0) {
+      setAllPosts(result.data);
+    }
+  };
+  useEffect(() => {
+    getPosts();
+  }, []);
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: white}}>
       <Modal
@@ -202,10 +216,10 @@ const Home = () => {
           showsVerticalScrollIndicator={false}
           ListHeaderComponent={() => (
             <Text style={{padding: 20, fontFamily: regular, fontSize: font5}}>
-              79 UPPDRAG
+              {allPosts?.length} UPPDRAG
             </Text>
           )}
-          data={arr}
+          data={allPosts}
           renderItem={renderItem}
           keyExtractor={item => item.id}
         />

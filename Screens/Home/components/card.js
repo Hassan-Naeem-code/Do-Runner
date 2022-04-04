@@ -12,14 +12,14 @@ import {font4, font5} from '../../../Utils/fontSize';
 import {hammer, user, calendar, dollar_bag} from '../../../Utils/images';
 import styles from '../css';
 import {useNavigation} from '@react-navigation/native';
-const card = () => {
+const card = ({item}) => {
   const navigation = useNavigation();
   return (
     <>
       <View style={styles.line} />
       <TouchableHighlight
         underlayColor={secondary}
-        onPress={() => navigation.navigate('HomeDetail')}
+        onPress={() => navigation.navigate('HomeDetail', {id: item?.id})}
         style={{
           flexDirection: 'row',
           // flex: 1,
@@ -34,12 +34,15 @@ const card = () => {
               justifyContent: 'center',
               paddingHorizontal: 20,
             }}>
-            <Image style={{width: 25, height: 25}} source={hammer} />
+            <Image
+              style={{width: 25, height: 25}}
+              source={{uri: item?.service?.image}}
+            />
           </View>
           <View style={{paddingHorizontal: 10, flex: 1}}>
             <Text
               style={{fontFamily: regular, fontSize: font5, color: font_black}}>
-              Atgarda ett sprucket tak, Arsta
+              {item?.location}
             </Text>
 
             <View
@@ -53,7 +56,7 @@ const card = () => {
                 source={user}
               />
               <Text style={{fontFamily: regular, fontSize: font4}}>
-                Privat person
+                {item?.name}
               </Text>
             </View>
             <View
@@ -67,7 +70,7 @@ const card = () => {
                 source={calendar}
               />
               <Text style={{fontFamily: regular, fontSize: font4}}>
-                Flexibelt
+                {item?.for_how_long.substr(0, 10)}
               </Text>
             </View>
             <View
@@ -81,7 +84,7 @@ const card = () => {
                 source={dollar_bag}
               />
               <Text style={{fontFamily: regular, fontSize: font4}}>
-                12 720 - 19 080 kr
+                {item?.latitude} - {item?.longitude} kr
               </Text>
             </View>
 
