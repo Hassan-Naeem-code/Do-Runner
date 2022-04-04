@@ -105,7 +105,7 @@ const Detail = ({navigation, route}) => {
               style={styles.detailClipView}>
               <>
                 <Image style={{width: 15, height: 15}} source={user} />
-                <Text style={styles.detailClip}>Privateperson</Text>
+                <Text style={styles.detailClip}>{postDetail?.name}</Text>
               </>
             </TouchableHighlight>
             <TouchableHighlight
@@ -114,7 +114,11 @@ const Detail = ({navigation, route}) => {
               style={styles.detailClipView}>
               <>
                 <Image style={{width: 15, height: 15}} source={calendar} />
-                <Text style={styles.detailClip}>Flexibelt</Text>
+                <Text style={styles.detailClip}>
+                  {postDetail &&
+                    postDetail?.for_how_long &&
+                    postDetail?.for_how_long.substr(0, 10)}
+                </Text>
               </>
             </TouchableHighlight>
             <TouchableHighlight
@@ -164,7 +168,7 @@ const Detail = ({navigation, route}) => {
             {postDetail?.company?.description}
           </Text>
 
-          <View style={{marginTop: 20}}>
+          {/* <View style={{marginTop: 20}}>
             <Text
               style={{fontFamily: medium, fontSize: font4, letterSpacing: 1}}>
               HUR STOR YTA OMFATTAR BYGGET
@@ -203,7 +207,7 @@ const Detail = ({navigation, route}) => {
               style={{fontFamily: medium, fontSize: font4, color: font_black}}>
               90 m
             </Text>
-          </View>
+          </View> */}
         </View>
       </ScrollView>
       <View style={{alignItems: 'center', marginBottom: 5}}>

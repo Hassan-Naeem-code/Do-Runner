@@ -22,6 +22,14 @@ const reducer = (state = initial_state, action) => {
         my_token: action.loginSession.token,
       };
     }
+    case 'LOGOUT_SESSION': {
+      return {
+        ...state,
+        loginSession: null,
+        user: null,
+        my_token: null,
+      };
+    }
     case 'UPDATE_TOKEN': {
       return {...state, my_token: action.my_token};
     }

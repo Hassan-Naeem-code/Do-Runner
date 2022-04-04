@@ -19,6 +19,11 @@ import {
 import {bold, medium} from '../../Utils/fontFamily';
 import {font4, font5, font6, font7, font8} from '../../Utils/fontSize';
 import {link_url, arrow_right} from '../../Utils/images';
+import {useSelector, useDispatch} from 'react-redux';
+import {userLogout} from '../../services/api';
+import {postApi} from '../../services/apiFunction';
+import {logOutUserFromApp} from '../../Redux/actions/authActions';
+import toast from 'react-native-simple-toast';
 
 import styles from './css';
 let arr = [
@@ -78,43 +83,39 @@ let arr = [
 ];
 
 const Bottomfifth = props => {
+  const dispatch = useDispatch();
   const onCLick = (title, type, link) => {
     if (type === 'url') {
       return Linking.openURL(link);
     } else {
-
       if (title === 'Kampanjer') {
         props?.navigation.navigate('Kampanjer');
-      }
-      else if (title === 'Kontakta oss') {
+      } else if (title === 'Kontakta oss') {
         props?.navigation.navigate('Kontakta');
-      }
-      else if( title === 'Hantera aviseringar')
-      {
+      } else if (title === 'Hantera aviseringar') {
         props?.navigation.navigate('Hantera');
-        
-      }
-      else if(title === 'Gratis kupongar')
-      {
+      } else if (title === 'Gratis kupongar') {
         props?.navigation.navigate('Kuponger');
-      }
-      else if(title === 'Medlemsformaner')
-      {
+      } else if (title === 'Medlemsformaner') {
         props?.navigation.navigate('Formaner');
-      }
-      else if(title === 'Offerter & avtal')
-      {
+      } else if (title === 'Offerter & avtal') {
         props?.navigation.navigate('Offerter');
-      }
-      else if(title === 'Bevakningar')
-      {
+      } else if (title === 'Bevakningar') {
         props?.navigation.navigate('Bevakning');
       }
-      
+    }
+  };
+  const loginSession = useSelector(state => state.authReducers.user);
+  const logOutUser = async () => {
+    const response = await postApi(userLogout, {}, loginSession?.token);
+    console.log('logout user', response);
+    if (response && response.success) {
+      toast.show(response.message);
+      dispatch(logOutUserFromApp());
     }
   };
   return (
-    <SafeAreaView style={{flex:1}}>
+    <SafeAreaView style={{flex: 1}}>
       <CustomHeader back={false} title={'Mitt Dorunner'} />
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -176,11 +177,20 @@ const Bottomfifth = props => {
                     <Image style={styles.img} source={arrow_right} />
                   </View>
                 </View>
-                {arr.length > ind+1 &&
-                    <View style={styles.line} />}
+                {arr.length > ind + 1 && <View style={styles.line} />}
               </>
             </TouchableHighlight>
           ))}
+        <View style={styles.line} />
+        <TouchableHighlight
+          underlayColor={secondary_light}
+          onPress={() => logOutUser()}>
+          <View style={styles.listMain}>
+            <View style={{flex: 0.8}}>
+              <Text style={styles.listTxt}>logga ut</Text>
+            </View>
+          </View>
+        </TouchableHighlight>
       </ScrollView>
     </SafeAreaView>
   );

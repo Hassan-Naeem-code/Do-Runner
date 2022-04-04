@@ -1,21 +1,24 @@
 import axios from './axios';
 
-export const postApi = async (url, data, navigate_url, navigate) => {
+export const postApi = async (url, data, token) => {
   try {
-    const response = await axios.post(url, data);
-    console.log('inside response is', response);
-    if (navigate_url) {
-      if (response.data.length) {
-        //   toast.success(response.data[0]);
-      } else {
-        //   toast.success(response.data);
-      }
-      navigate(navigate_url);
-      return;
+    let response;
+    if (token) {
+      response = await axios.post(url, data, {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      });
+    } else {
+      response = await axios.post(url, data);
     }
+    console.log('inside response is', response);
     if (response.status === 200) {
-      const {data} = response.data;
-      return response.data;
+      if (response.data) {
+        return response.data;
+      } else {
+        return response;
+      }
     }
   } catch (error) {
     if (error.response.data.length) {

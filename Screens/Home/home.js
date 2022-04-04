@@ -36,7 +36,7 @@ import {
 import Card from './components/card';
 import Modal from './components/modal';
 import styles from './css';
-import {getAllPosts} from '../../services/api';
+import {getAllPosts, getAllServices} from '../../services/api';
 import {getApi} from '../../services/apiFunction';
 
 let arr = [
@@ -67,6 +67,7 @@ const Home = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [filterBool, setfilterBool] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
+  const [allServices, setAllServices] = useState([]);
   const loginSession = useSelector(state => state.authReducers.user);
   const renderItem = ({item}) => <Card item={item} />;
   console.log('loginSession', loginSession);
@@ -77,8 +78,16 @@ const Home = () => {
       setAllPosts(result.data);
     }
   };
+  const getServices = async () => {
+    const result = await getApi(getAllServices, loginSession?.token);
+    console.log('result of service api', result);
+    if (result && result.data.length > 0) {
+      setAllServices(result.data);
+    }
+  };
   useEffect(() => {
     getPosts();
+    getServices();
   }, []);
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: white}}>
@@ -103,18 +112,27 @@ const Home = () => {
           showsHorizontalScrollIndicator={false}
           horizontal
           contentContainerStyle={{marginTop: 15}}>
-          <View style={{width: 80, alignItems: 'center'}}>
-            <TouchableHighlight
-              underlayColor={font_secondary}
-              onPress={() => {
-                setModalVisible(!modalVisible), setOption('1');
-              }}
-              style={[styles.circle]}>
-              <Image style={styles.circleImg} source={location} />
-            </TouchableHighlight>
-            <Text style={styles.headerTxt}>Bevakning</Text>
-          </View>
-          <View style={{width: 80, alignItems: 'center'}}>
+          {allServices.length > 0
+            ? allServices.map((item, index) => {
+                return (
+                  <View style={{width: 80, alignItems: 'center'}} key={index}>
+                    <TouchableHighlight
+                      underlayColor={font_secondary}
+                      onPress={() => {
+                        setModalVisible(!modalVisible), setOption('1');
+                      }}
+                      style={[styles.circle]}>
+                      <Image
+                        style={styles.circleImg}
+                        source={{uri: item?.image}}
+                      />
+                    </TouchableHighlight>
+                    <Text style={styles.headerTxt}>{item?.title}</Text>
+                  </View>
+                );
+              })
+            : null}
+          {/* <View style={{width: 80, alignItems: 'center'}}>
             <TouchableHighlight
               underlayColor={font_secondary}
               onPress={() => {
@@ -190,7 +208,7 @@ const Home = () => {
               <Image style={styles.circleImg} source={eye} />
             </TouchableHighlight>
             <Text style={styles.headerTxt}>Dolda uppdrag</Text>
-          </View>
+          </View> */}
         </ScrollView>
         {filterBool ? (
           <View

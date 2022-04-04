@@ -4,6 +4,11 @@ const sessionLogin = loginSession => {
     loginSession,
   };
 };
+const logOutUserFromApp = () => {
+  return {
+    type: 'LOGOUT_SESSION',
+  };
+};
 
 const showLoader = loading => {
   return {
@@ -18,4 +23,4 @@ const loaderStatus = loadingStatus => {
   };
 };
 
-export {sessionLogin, showLoader, loaderStatus};
+export {sessionLogin, showLoader, loaderStatus, logOutUserFromApp};
