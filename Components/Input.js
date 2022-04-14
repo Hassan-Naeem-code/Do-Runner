@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 import {
   Text,
   TouchableHighlight,
@@ -8,7 +8,7 @@ import {
   Image,
   I18nManager,
 } from 'react-native';
-import {brown, white, blue, fontGray} from '../Utils/colors';
+import { brown, white, blue, fontGray } from '../Utils/colors';
 // import {password_eye} from '../Utils/images';
 // "#f5e6fd",
 // "#fbe6e2",
@@ -30,6 +30,7 @@ const Textinput = ({
   height,
   txtcolor,
   borderColor,
+  id_editable
 }) => {
   return (
     <>
@@ -53,27 +54,28 @@ const Textinput = ({
           placeholderTextColor={'#C7C7CD'}
           keyboardType={keyboardtype}
           secureTextEntry={secureTextEntry}
+          editable={id_editable ? false : true}
         />
       ) : // <View style={styles.pass}>
-      //   <TextInput
-      //     style={[styles.input, {marginHorizontal: '2.5%', width: '86%'}]}
-      //     onChangeText={onchange}
-      //     value={value}
-      //     placeholder={placeholder}
-      //     placeholderTextColor={'#C7C7CD'}
-      //     keyboardType={keyboardtype}
-      //     secureTextEntry={secureTextEntry}
-      //   />
-      //   <TouchableHighlight
-      //     underlayColor="transparant"
-      //     onPress={() => onclickEye(eye)}>
-      //     <Image
-      //       style={{right: 10, tintColor: !eye ? blue : fontGray}}
-      //       source={password_eye}
-      //     />
-      //   </TouchableHighlight>
-      // </View>
-      null}
+        //   <TextInput
+        //     style={[styles.input, {marginHorizontal: '2.5%', width: '86%'}]}
+        //     onChangeText={onchange}
+        //     value={value}
+        //     placeholder={placeholder}
+        //     placeholderTextColor={'#C7C7CD'}
+        //     keyboardType={keyboardtype}
+        //     secureTextEntry={secureTextEntry}
+        //   />
+        //   <TouchableHighlight
+        //     underlayColor="transparant"
+        //     onPress={() => onclickEye(eye)}>
+        //     <Image
+        //       style={{right: 10, tintColor: !eye ? blue : fontGray}}
+        //       source={password_eye}
+        //     />
+        //   </TouchableHighlight>
+        // </View>
+        null}
     </>
   );
 };

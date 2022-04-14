@@ -1,16 +1,18 @@
 import * as React from 'react';
-import {Image, Platform} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
+import { Image, Platform } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import {
   createStackNavigator,
   CardStyleInterpolators,
 } from '@react-navigation/stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {connect, useDispatch, useSelector} from 'react-redux';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { connect, useDispatch, useSelector } from 'react-redux';
 
 //AUTH
+import SelectAuth from '../Screens/Auth/selectAuth';
 import Login from '../Screens/Auth/login';
 import Register from '../Screens/Auth/register';
+import RegisterCompany from '../Screens/Auth/registerCompany';
 
 //HOME
 import Home from '../Screens/Home/home';
@@ -21,6 +23,7 @@ import BottomThird from '../Screens/BottomThird/uppdrag'
 
 // MER
 import Bottomfifth from '../Screens/Bottomfifth/bottomfifth'
+import AndraProfile from '../Screens/Bottomfifth/andraProfile';
 import Kampanjer from '../Screens/Bottomfifth/kampanjer';
 import Kontakta from '../Screens/Bottomfifth//kontakta';
 import Hantera from '../Screens/Bottomfifth/hantera';
@@ -34,14 +37,14 @@ import BevakningDetail from '../Screens/Bottomfifth/bevakningDetail';
 
 
 // IMAGES
-import {dots, home, messenger, shopping_bag, trophy} from '../Utils/images';
-import {primary, font_secondary, white} from '../Utils/colors';
+import { dots, home, messenger, shopping_bag, trophy } from '../Utils/images';
+import { primary, font_secondary, white } from '../Utils/colors';
 
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const Auth = ({navigation}) => {
+const Auth = ({ navigation }) => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -51,22 +54,32 @@ const Auth = ({navigation}) => {
       }}
       headerMode="float"
       animation="fade"
-      initialRouteName="Login">
+      initialRouteName="SelectAuth">
+      <Stack.Screen
+        name="SelectAuth"
+        options={{ headerShown: false }}
+        component={SelectAuth}
+      />
       <Stack.Screen
         name="Login"
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
         component={Login}
       />
       <Stack.Screen
         name="Register"
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
         component={Register}
+      />
+      <Stack.Screen
+        name="RegisterCompany"
+        options={{ headerShown: false }}
+        component={RegisterCompany}
       />
     </Stack.Navigator>
   );
 };
 
-const RootMartStackScreen = ({navigation}) => {
+const RootMartStackScreen = ({ navigation }) => {
   return (
     <>
       <Stack.Navigator
@@ -80,21 +93,21 @@ const RootMartStackScreen = ({navigation}) => {
         initialRouteName="ExploreBottom">
         <Stack.Screen
           name="ExploreBottom"
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
           component={BottomTab}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="HomeDetail"
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
           component={Detail}
         />
-       
+
       </Stack.Navigator>
     </>
   );
 };
 
-const BottomTab = ({navigation}) => {
+const BottomTab = ({ navigation }) => {
   return (
     <Tab.Navigator
       initialRouteName="BottomThird"
@@ -114,9 +127,9 @@ const BottomTab = ({navigation}) => {
         options={{
           unmountOnBlur: true,
           tabBarLabel: 'Uppdrag',
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <Image
-              style={{width: 30, height: 30, tintColor: color}}
+              style={{ width: 30, height: 30, tintColor: color }}
               source={home}
             />
           ),
@@ -128,9 +141,9 @@ const BottomTab = ({navigation}) => {
         options={{
           unmountOnBlur: true,
           tabBarLabel: 'Kopta',
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <Image
-              style={{width: 30, height: 30, tintColor: color}}
+              style={{ width: 30, height: 30, tintColor: color }}
               source={shopping_bag}
             />
           ),
@@ -142,9 +155,9 @@ const BottomTab = ({navigation}) => {
         options={{
           unmountOnBlur: true,
           tabBarLabel: 'Vunna',
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <Image
-              style={{width: 25, height: 25, tintColor: color}}
+              style={{ width: 25, height: 25, tintColor: color }}
               source={trophy}
             />
           ),
@@ -156,9 +169,9 @@ const BottomTab = ({navigation}) => {
         options={{
           unmountOnBlur: true,
           tabBarLabel: 'Chatt',
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <Image
-              style={{width: 25, height: 25, tintColor: color}}
+              style={{ width: 25, height: 25, tintColor: color }}
               source={messenger}
             />
           ),
@@ -170,9 +183,9 @@ const BottomTab = ({navigation}) => {
         options={{
           unmountOnBlur: true,
           tabBarLabel: 'Met',
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <Image
-              style={{width: 24, height: 24, tintColor: color}}
+              style={{ width: 24, height: 24, tintColor: color }}
               source={dots}
             />
           ),
@@ -182,7 +195,7 @@ const BottomTab = ({navigation}) => {
   );
 };
 
-const BottomFifth = ({navigation}) => {
+const BottomFifth = ({ navigation }) => {
   return (
     <>
       <Stack.Navigator
@@ -196,50 +209,55 @@ const BottomFifth = ({navigation}) => {
         initialRouteName="Bottomfifth">
         <Stack.Screen
           name="Bottomfifth"
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
           component={Bottomfifth}
         />
         <Stack.Screen
+          name="AndraProfile"
+          options={{ headerShown: false }}
+          component={AndraProfile}
+        />
+        <Stack.Screen
           name="Kampanjer"
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
           component={Kampanjer}
         />
         <Stack.Screen
           name="Kontakta"
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
           component={Kontakta}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="Hantera"
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
           component={Hantera}
         />
         <Stack.Screen
           name="Kuponger"
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
           component={Kuponger}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="Formaner"
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
           component={Formaner}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="Offerter"
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
           component={Offerter}
         />
         <Stack.Screen
           name="Bevakning"
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
           component={Bevakning}
         />
         <Stack.Screen
           name="BevakningDetail"
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
           component={BevakningDetail}
         />
-        
+
       </Stack.Navigator>
     </>
   );

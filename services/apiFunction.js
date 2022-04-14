@@ -21,10 +21,8 @@ export const postApi = async (url, data, token) => {
       }
     }
   } catch (error) {
-    if (error.response.data.length) {
-      //   toast.warn(error.response.data[0]);
-    } else {
-      //   toast.warn(error.response.data);
+    if (error.response) {
+      return error.response;
     }
     return error;
   }

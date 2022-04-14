@@ -4,7 +4,8 @@ import CommonHeader from '../../Components/commonHeader'
 import { font_black } from '../../Utils/colors'
 import { medium } from '../../Utils/fontFamily'
 import { font4 } from '../../Utils/fontSize'
-import styles from './css'
+import styles from './css';
+
 const kampanjer = () => {
     return (
         <SafeAreaView style={{flex:1}}>
