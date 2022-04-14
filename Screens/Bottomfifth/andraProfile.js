@@ -11,7 +11,7 @@ import { postApi } from '../../services/apiFunction';
 import { sessionLogin } from '../../Redux/actions/authActions';
 import toast from 'react-native-simple-toast';
 
-const AndraProfile = ({navigation}) => {
+const AndraProfile = ({ navigation }) => {
     const dispatch = useDispatch();
     const loginSession = useSelector(state => state.authReducers.user);
     const [company_name, setCompanyName] = useState('');
@@ -25,7 +25,7 @@ const AndraProfile = ({navigation}) => {
     const [loading, setLoading] = useState(false);
     const updateCompany = async () => {
         console.log('function called');
-        let data = {
+        let params = {
             company_name,
             company_description,
             company_address,
@@ -41,11 +41,11 @@ const AndraProfile = ({navigation}) => {
             setLoading(!loading);
             console.log(
                 'data',
-                data,
+                params,
                 'url',
                 'https://qraftsman.wepsol.pk/api/' + updateCompaniesInfo,
             );
-            const { success, message, data } = await postApi(updateCompaniesInfo, data, loginSession?.token);
+            const { success, message, data } = await postApi(updateCompaniesInfo, params, loginSession?.token);
             if (success) {
                 dispatch(sessionLogin(data));
                 toast.show(message);
@@ -71,7 +71,7 @@ const AndraProfile = ({navigation}) => {
                         </Text>
                         <Textinput
                             type={'normal'}
-                            placeholder={loginSession ? loginSession?.company?.name : 'Företagsnamn'}
+                            placeholder={loginSession?.company ? loginSession?.company?.name : loginSession?.name ? loginSession?.name : 'Företagsnamn'}
                             // borderRadius={25}
                             height={50}
                             onchange={setCompanyName}
@@ -87,7 +87,7 @@ const AndraProfile = ({navigation}) => {
                         </Text>
                         <Textinput
                             type={'normal'}
-                            placeholder={loginSession ? loginSession?.company?.description : 'Företagsbeskrivning'}
+                            placeholder={loginSession?.company ? loginSession?.company?.description : loginSession?.description ? loginSession?.description : 'Företagsbeskrivning'}
                             // borderRadius={25}
                             height={50}
                             onchange={setCompanyDescription}
@@ -103,7 +103,7 @@ const AndraProfile = ({navigation}) => {
                         </Text>
                         <Textinput
                             type={'normal'}
-                            placeholder={loginSession ? loginSession?.company?.company_address : 'Företags Adress'}
+                            placeholder={loginSession?.company ? loginSession?.company?.company_address : loginSession?.company_address ? loginSession?.company_address : 'Företags Adress'}
                             // borderRadius={25}
                             height={50}
                             onchange={setCompanyAddress}
@@ -119,7 +119,7 @@ const AndraProfile = ({navigation}) => {
                         </Text>
                         <Textinput
                             type={'normal'}
-                            placeholder={loginSession ? loginSession?.company?.billing_address : 'Företagets faktureringsadress'}
+                            placeholder={loginSession?.company ? loginSession?.company?.billing_address : loginSession?.billing_address ? loginSession?.billing_address : 'Företagets faktureringsadress'}
                             // borderRadius={25}
                             height={50}
                             onchange={setCompanyBillingAddress}
@@ -135,7 +135,7 @@ const AndraProfile = ({navigation}) => {
                         </Text>
                         <Textinput
                             type={'normal'}
-                            placeholder={loginSession ? loginSession?.company?.page_link : 'Länk till företagssida'}
+                            placeholder={loginSession?.company ? loginSession?.company?.page_link : loginSession?.page_link ? loginSession?.page_link : 'Länk till företagssida'}
                             // borderRadius={25}
                             height={50}
                             onchange={setPageLink}
@@ -151,7 +151,7 @@ const AndraProfile = ({navigation}) => {
                         </Text>
                         <Textinput
                             type={'normal'}
-                            placeholder={loginSession ? String(loginSession?.company?.number_of_employees) : 'Företag Antal anställda'}
+                            placeholder={loginSession?.company ? String(loginSession?.company?.number_of_employees) : loginSession?.number_of_employees ? String(loginSession?.number_of_employees) : 'Företag Antal anställda'}
                             // borderRadius={25}
                             height={50}
                             onchange={setNumberOfEmployees}
@@ -168,7 +168,7 @@ const AndraProfile = ({navigation}) => {
                         </Text>
                         <Textinput
                             type={'normal'}
-                            placeholder={loginSession ? String(loginSession?.company?.phone) : 'Företagets telefonnummer'}
+                            placeholder={loginSession?.company ? String(loginSession?.company?.phone) : loginSession?.phone ? String(loginSession?.phone) : 'Företagets telefonnummer'}
                             // borderRadius={25}
                             height={50}
                             onchange={setPhone}
@@ -185,7 +185,7 @@ const AndraProfile = ({navigation}) => {
                         </Text>
                         <Textinput
                             type={'normal'}
-                            placeholder={loginSession ? String(loginSession?.company?.zip_code) : 'Postnummer'}
+                            placeholder={loginSession?.company ? String(loginSession?.company?.zip_code) : loginSession?.zip_code ? String(loginSession?.zip_code) : 'Postnummer'}
                             // borderRadius={25}
                             height={50}
                             onchange={setZipCode}

@@ -106,12 +106,15 @@ const Bottomfifth = props => {
     }
   };
   const loginSession = useSelector(state => state.authReducers.user);
+  console.log('log out loginSession', loginSession)
   const logOutUser = async () => {
-    const response = await postApi(userLogout, {}, loginSession?.token);
+    const response = await postApi(userLogout, {}, loginSession?.token ? loginSession?.token : loginSession?.user?.token);
     console.log('logout user', response);
     if (response && response.success) {
       toast.show(response.message);
       dispatch(logOutUserFromApp());
+    } else {
+      toast.show(response.message);
     }
   };
   return (
