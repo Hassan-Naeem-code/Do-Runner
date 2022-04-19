@@ -26,6 +26,7 @@ import Bottomfifth from '../Screens/Bottomfifth/bottomfifth'
 import AndraProfile from '../Screens/Bottomfifth/andraProfile';
 import Kampanjer from '../Screens/Bottomfifth/kampanjer';
 import Kontakta from '../Screens/Bottomfifth//kontakta';
+import Balance from '../Screens/Bottomfifth//Balance';
 import Hantera from '../Screens/Bottomfifth/hantera';
 import Kuponger from '../Screens/Bottomfifth/kuponger';
 import Formaner from '../Screens/Bottomfifth/formaner';
@@ -226,6 +227,11 @@ const BottomFifth = ({ navigation }) => {
           name="Kontakta"
           options={{ headerShown: false }}
           component={Kontakta}
+        />
+        <Stack.Screen
+          name="Balance"
+          options={{ headerShown: false }}
+          component={Balance}
         />
         <Stack.Screen
           name="Hantera"

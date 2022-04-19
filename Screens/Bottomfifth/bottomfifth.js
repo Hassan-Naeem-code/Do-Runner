@@ -33,6 +33,10 @@ let arr = [
   //   link: 'https://company.dorunner.se/profileprofile',
   // },
   {
+    title: 'Balance',
+    url: false,
+  },
+  {
     title: 'Surveillance',
     url: false,
   },
@@ -88,20 +92,22 @@ const Bottomfifth = props => {
     if (type === 'url') {
       return Linking.openURL(link);
     } else {
-      if (title === 'Kampanjer') {
+      if (title === 'Promotions') {
         props?.navigation.navigate('Kampanjer');
-      } else if (title === 'Kontakta oss') {
+      } else if (title === 'Contact Us') {
         props?.navigation.navigate('Kontakta');
-      } else if (title === 'Hantera aviseringar') {
+      } else if (title === 'Manage notifications') {
         props?.navigation.navigate('Hantera');
-      } else if (title === 'Gratis kupongar') {
+      } else if (title === 'Free coupons') {
         props?.navigation.navigate('Kuponger');
-      } else if (title === 'Medlemsformaner') {
+      } else if (title === 'Member executives') {
         props?.navigation.navigate('Formaner');
-      } else if (title === 'Offerter & avtal') {
+      } else if (title === 'Quotations and agreements') {
         props?.navigation.navigate('Offerter');
-      } else if (title === 'Bevakningar') {
+      } else if (title === 'Surveillance') {
         props?.navigation.navigate('Bevakning');
+      } else if (title === 'Balance') {
+        props?.navigation.navigate('Balance');
       }
     }
   };
