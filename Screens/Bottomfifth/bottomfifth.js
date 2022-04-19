@@ -33,51 +33,51 @@ let arr = [
   //   link: 'https://company.dorunner.se/profileprofile',
   // },
   {
-    title: 'Bevakningar',
+    title: 'Surveillance',
     url: false,
   },
   {
-    title: 'Offerter & avtal',
+    title: 'Quotations and agreements',
     url: false,
   },
   {
-    title: 'Mitt medlemskap',
+    title: 'My membership',
     url: true,
     link: 'https://company.dorunner.se/account/membershipmembership',
   },
   {
-    title: 'Byt losenord',
+    title: 'Change password',
     url: true,
     link: 'https://company.dorunner.se/account/passwordpassword',
   },
   {
-    title: 'Mina enheter',
+    title: 'My devices',
     url: true,
     link: 'https://company.dorunner.se/account/devices',
   },
   {
-    title: 'Kreditera uppdrag',
+    title: 'Credit assignments',
     url: true,
     link: 'https://company.dorunner.se/account/credits',
   },
   {
-    title: 'Medlemsformaner',
+    title: 'Member executives',
     url: false,
   },
   {
-    title: 'Gratis kupongar',
+    title: 'Free coupons',
     url: false,
   },
   {
-    title: 'Hantera aviseringar',
+    title: 'Manage notifications',
     url: false,
   },
   {
-    title: 'Kontakta oss',
+    title: 'Contact Us',
     url: false,
   },
   {
-    title: 'Kampanjer',
+    title: 'Promotions',
     url: false,
   },
 ];
@@ -166,7 +166,7 @@ const Bottomfifth = props => {
               <>
                 <View style={styles.listMain}>
                   <View style={{ flex: 0.8 }}>
-                    <Text style={styles.listTxt}>Andra profile</Text>
+                    <Text style={styles.listTxt}>Second profile</Text>
                   </View>
                   <View style={styles.listRightView}>
                     <Image
@@ -236,7 +236,7 @@ const Bottomfifth = props => {
           onPress={() => logOutUser()}>
           <View style={styles.listMain}>
             <View style={{ flex: 0.8 }}>
-              <Text style={styles.listTxt}>logga ut</Text>
+              <Text style={styles.listTxt}>Log Out</Text>
             </View>
           </View>
         </TouchableHighlight>
