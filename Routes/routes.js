@@ -25,6 +25,9 @@ import BottomThird from '../Screens/BottomThird/uppdrag'
 import Bottomfifth from '../Screens/Bottomfifth/bottomfifth'
 import AndraProfile from '../Screens/Bottomfifth/andraProfile';
 import Kampanjer from '../Screens/Bottomfifth/kampanjer';
+import References from '../Screens/Bottomfifth/references';
+import Reviews from '../Screens/Bottomfifth/reviews';
+import Referals from '../Screens/Bottomfifth/referals';
 import Kontakta from '../Screens/Bottomfifth//kontakta';
 import Balance from '../Screens/Bottomfifth//Balance';
 import Hantera from '../Screens/Bottomfifth/hantera';
@@ -222,6 +225,21 @@ const BottomFifth = ({ navigation }) => {
           name="Kampanjer"
           options={{ headerShown: false }}
           component={Kampanjer}
+        />
+        <Stack.Screen
+          name="References"
+          options={{ headerShown: false }}
+          component={References}
+        />
+        <Stack.Screen
+          name="Reviews"
+          options={{ headerShown: false }}
+          component={Reviews}
+        />
+        <Stack.Screen
+          name="Referals"
+          options={{ headerShown: false }}
+          component={Referals}
         />
         <Stack.Screen
           name="Kontakta"

@@ -30,7 +30,8 @@ const Textinput = ({
   height,
   txtcolor,
   borderColor,
-  id_editable
+  id_editable,
+  multiline
 }) => {
   return (
     <>
@@ -55,6 +56,7 @@ const Textinput = ({
           keyboardType={keyboardtype}
           secureTextEntry={secureTextEntry}
           editable={id_editable ? false : true}
+          multiline={multiline ? multiline : false}
         />
       ) : // <View style={styles.pass}>
         //   <TextInput

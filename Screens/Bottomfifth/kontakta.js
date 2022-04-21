@@ -11,7 +11,7 @@ import { RadioButton } from 'react-native-paper';
 import CommonHeader from '../../Components/commonHeader';
 import PrimaryButton from '../../Components/primaryButton';
 import Textinput from '../../Components/Input';
-import { font_black, secondary_light, white } from '../../Utils/colors';
+import { font_black, secondary_light, white,primary } from '../../Utils/colors';
 import { medium } from '../../Utils/fontFamily';
 import { font4, font5, font6 } from '../../Utils/fontSize';
 import { phone, email } from '../../Utils/images';
@@ -64,7 +64,7 @@ const Kontakta = () => {
                       // registerCompany();
                     }}
                     borderRadius={30}
-                    backgroundColor={'yellow'}
+                    backgroundColor={primary}
                     fill={'#000'}
                   />
                 </View>
@@ -166,7 +166,7 @@ const Kontakta = () => {
                       setActive(!active)
                     }}
                     borderRadius={30}
-                    backgroundColor={'yellow'}
+                    backgroundColor={primary}
                     fill={'#000'}
                   />
                 </View>

@@ -33,6 +33,22 @@ let arr = [
   //   link: 'https://company.dorunner.se/profileprofile',
   // },
   {
+    title: 'Contact Us',
+    url: false,
+  },
+  {
+    title: 'Referals',
+    url: false,
+  },
+  {
+    title: 'References',
+    url: false,
+  },
+  {
+    title: 'Reviews',
+    url: false,
+  },
+  {
     title: 'Balance',
     url: false,
   },
@@ -77,10 +93,6 @@ let arr = [
     url: false,
   },
   {
-    title: 'Contact Us',
-    url: false,
-  },
-  {
     title: 'Promotions',
     url: false,
   },
@@ -96,6 +108,12 @@ const Bottomfifth = props => {
         props?.navigation.navigate('Kampanjer');
       } else if (title === 'Contact Us') {
         props?.navigation.navigate('Kontakta');
+      } else if (title === 'Referals') {
+        props?.navigation.navigate('Referals');
+      } else if (title === 'References') {
+        props?.navigation.navigate('References');
+      } else if (title === 'Reviews') {
+        props?.navigation.navigate('Reviews');
       } else if (title === 'Manage notifications') {
         props?.navigation.navigate('Hantera');
       } else if (title === 'Free coupons') {
@@ -167,7 +185,7 @@ const Bottomfifth = props => {
             <TouchableHighlight
               underlayColor={secondary_light}
               onPress={() =>
-                props?.navigation?.navigate('AndraProfile')
+                props?.navigation?.navigate('Andrasecondary_lightProfile')
               }>
               <>
                 <View style={styles.listMain}>
