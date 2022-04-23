@@ -1,0 +1,729 @@
+{
+	"info": {
+		"_postman_id": "13dc0604-0f89-41ab-b960-88d7e2980ad1",
+		"name": "qraftsman v-4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get-contact-us-options",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base_url}}get-contact-us-options",
+					"host": [
+						"{{base_url}}get-contact-us-options"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "submit-contact-us",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "option_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "detail",
+							"value": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\n",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}submit-contact-us",
+					"host": [
+						"{{base_url}}submit-contact-us"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "request-reviews",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "sm.ali10@yahoo.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}request-reviews",
+					"host": [
+						"{{base_url}}request-reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "my-references",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "This is dummy project referenc eTitle",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "What is Lorem Ipsum?\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nWhy do we use it?\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\n\nWhere does it come from?\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
+							"type": "text"
+						},
+						{
+							"key": "reference_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}my-references",
+					"host": [
+						"{{base_url}}my-references"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit-reference",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "This is dummy project referenc eTitle",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "What is Lorem Ipsum?\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nWhy do we use it?\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\n\nWhere does it come from?\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
+							"type": "text"
+						},
+						{
+							"key": "reference_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}edit-reference?reference_id=1",
+					"host": [
+						"{{base_url}}edit-reference"
+					],
+					"query": [
+						{
+							"key": "reference_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "submit-reference Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "This is dummy project referenc eTitle",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "What is Lorem Ipsum?\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nWhy do we use it?\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\n\nWhere does it come from?\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}submit-reference",
+					"host": [
+						"{{base_url}}submit-reference"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-reference",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "updating",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Updating What is Lorem Ipsum?\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nWhy do we use it?\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\n\nWhere does it come from?\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
+							"type": "text"
+						},
+						{
+							"key": "reference_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}update-reference",
+					"host": [
+						"{{base_url}}update-reference"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-reference",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base_url}}delete-reference?reference_id=3",
+					"host": [
+						"{{base_url}}delete-reference"
+					],
+					"query": [
+						{
+							"key": "reference_id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "my-payment-methods",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "John Doe",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "sm.ali10@yahoo.com",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "151asd asdasd",
+							"type": "text"
+						},
+						{
+							"key": "zip_code",
+							"value": "75500",
+							"type": "text"
+						},
+						{
+							"key": "post_office",
+							"value": "ASd asd68as1d2asd",
+							"type": "text"
+						},
+						{
+							"key": "card_number",
+							"value": "4242-4242-4242_4242",
+							"type": "text"
+						},
+						{
+							"key": "expiry_year",
+							"value": "2025",
+							"type": "text"
+						},
+						{
+							"key": "expiry_month",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "cvc",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}my-payment-methods",
+					"host": [
+						"{{base_url}}my-payment-methods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save-payment-method",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "John Doe",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "sm.ali10@yahoo.com",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "151asd asdasd",
+							"type": "text"
+						},
+						{
+							"key": "zip_code",
+							"value": "75500",
+							"type": "text"
+						},
+						{
+							"key": "post_office",
+							"value": "ASd asd68as1d2asd",
+							"type": "text"
+						},
+						{
+							"key": "card_number",
+							"value": "4242-4242-4242_4242",
+							"type": "text"
+						},
+						{
+							"key": "expiry_year",
+							"value": "2025",
+							"type": "text"
+						},
+						{
+							"key": "expiry_month",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "cvc",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}save-payment-method",
+					"host": [
+						"{{base_url}}save-payment-method"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit-payment-method",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "John Doe",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "sm.ali10@yahoo.com",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "151asd asdasd",
+							"type": "text"
+						},
+						{
+							"key": "zip_code",
+							"value": "75500",
+							"type": "text"
+						},
+						{
+							"key": "post_office",
+							"value": "ASd asd68as1d2asd",
+							"type": "text"
+						},
+						{
+							"key": "card_number",
+							"value": "4242-4242-4242_4242",
+							"type": "text"
+						},
+						{
+							"key": "expiry_year",
+							"value": "2025",
+							"type": "text"
+						},
+						{
+							"key": "expiry_month",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "cvc",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}edit-payment-method?method_id=1",
+					"host": [
+						"{{base_url}}edit-payment-method"
+					],
+					"query": [
+						{
+							"key": "method_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-payment-method",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "John Doea",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "sm.ali10@yahoo.com",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "151asd asdasd",
+							"type": "text"
+						},
+						{
+							"key": "zip_code",
+							"value": "75500",
+							"type": "text"
+						},
+						{
+							"key": "post_office",
+							"value": "ASd asd68as1d2asd",
+							"type": "text"
+						},
+						{
+							"key": "card_number",
+							"value": "4242-4242-4242_4242",
+							"type": "text"
+						},
+						{
+							"key": "expiry_year",
+							"value": "2025",
+							"type": "text"
+						},
+						{
+							"key": "expiry_month",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "cvc",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "method_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}update-payment-method",
+					"host": [
+						"{{base_url}}update-payment-method"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-payment-method",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "John Doe",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "sm.ali10@yahoo.com",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "151asd asdasd",
+							"type": "text"
+						},
+						{
+							"key": "zip_code",
+							"value": "75500",
+							"type": "text"
+						},
+						{
+							"key": "post_office",
+							"value": "ASd asd68as1d2asd",
+							"type": "text"
+						},
+						{
+							"key": "card_number",
+							"value": "4242-4242-4242_4242",
+							"type": "text"
+						},
+						{
+							"key": "expiry_year",
+							"value": "2025",
+							"type": "text"
+						},
+						{
+							"key": "expiry_month",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "cvc",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}delete-payment-method?method_id=1",
+					"host": [
+						"{{base_url}}delete-payment-method"
+					],
+					"query": [
+						{
+							"key": "method_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

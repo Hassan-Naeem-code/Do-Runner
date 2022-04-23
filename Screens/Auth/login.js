@@ -23,6 +23,7 @@ const login = ({ navigation, route }) => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  // Function To Login The User
   const loginUser = async () => {
     console.log('function called');
     let data = {

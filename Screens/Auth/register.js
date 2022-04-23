@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import {
   View,
   Text,
-  SafeAreaView,
-  ImageBackground,
   Image,
   ScrollView,
 } from 'react-native';
@@ -26,14 +24,16 @@ const Register = ({navigation}) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
   const [loading, setLoading] = useState(false);
+  // Function To Register A User
   const registerUser = async () => {
-    console.log('function called');
+    // Data created for api params
     let data = {
       name,
       email,
       password,
       role_id: 1,
     };
+    // Condition to check whether email is empty or not
     if (name !== '' || email !== '' || password !== '') {
       setLoading(!loading);
       console.log(
