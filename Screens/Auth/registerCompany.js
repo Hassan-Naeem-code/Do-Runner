@@ -35,6 +35,7 @@ const RegisterCompany = ({navigation}) => {
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
   const [loading, setLoading] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+  //   Function To Register A Company
   const registerCompany = async () => {
     console.log('function called');
     let data = {
@@ -90,6 +91,7 @@ const RegisterCompany = ({navigation}) => {
       toast.show('Please Fill The Fields First');
     }
   };
+  //   Function To Get Data For Country And Cities
   const getInfos = async () => {
     const {country} = await getApi(getCountry);
     const {cities} = await getApi(getCity);
@@ -102,6 +104,7 @@ const RegisterCompany = ({navigation}) => {
       setAllCities(cities.slice(0, 10));
     }
   };
+  //   Function To Open Modal For Cities Selection
   const openCityVisible = () => {
     console.log('openCityVisible');
     setModalVisible(!modalVisible);

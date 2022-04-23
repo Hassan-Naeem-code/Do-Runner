@@ -39,6 +39,7 @@ const Detail = ({navigation, route}) => {
   const [eyebool, setEyebool] = useState(false);
   const [postDetail, setPostDetail] = useState({});
   const loginSession = useSelector(state => state.authReducers.user);
+  // Function to get the details of a Post
   const getPostDetail = async id => {
     console.log(
       'postDetail + id, loginSession?.token',
@@ -51,6 +52,7 @@ const Detail = ({navigation, route}) => {
       setPostDetail(result?.data);
     }
   };
+  // Function will run when screen is mounted to get the details of a Post
   useEffect(() => {
     getPostDetail(id);
   }, []);

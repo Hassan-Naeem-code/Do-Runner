@@ -20,48 +20,13 @@ import {
 import {bold, medium, regular} from '../../Utils/fontFamily';
 import {font4, font5, font6, font7, font8} from '../../Utils/fontSize';
 
-import {
-  waving_hand,
-  diagonal_arrow,
-  eye,
-  heart,
-  location,
-  percentage,
-  size,
-  hammer,
-  dollar_bag,
-  calendar,
-  user,
-} from '../../Utils/images';
+import {waving_hand} from '../../Utils/images';
 import Card from './components/card';
 import Modal from './components/modal';
 import styles from './css';
 import {getAllPosts, getAllServices} from '../../services/api';
 import {getApi} from '../../services/apiFunction';
 
-let arr = [
-  {
-    id: 1,
-  },
-  {
-    id: 2,
-  },
-  {
-    id: 3,
-  },
-  {
-    id: 4,
-  },
-  {
-    id: 5,
-  },
-  {
-    id: 6,
-  },
-  {
-    id: 7,
-  },
-];
 const Home = () => {
   const [option, setOption] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
@@ -69,8 +34,9 @@ const Home = () => {
   const [allPosts, setAllPosts] = useState([]);
   const [allServices, setAllServices] = useState([]);
   const loginSession = useSelector(state => state.authReducers.user);
+  // Function to display Card
   const renderItem = ({item}) => <Card item={item} />;
-  console.log('loginSession', loginSession);
+  // Function to get the POST to view
   const getPosts = async () => {
     const result = await getApi(getAllPosts, loginSession?.token);
     console.log('result of post api', result);
@@ -78,6 +44,7 @@ const Home = () => {
       setAllPosts(result.data);
     }
   };
+  // Function to get the SERVICES to view
   const getServices = async () => {
     const result = await getApi(getAllServices, loginSession?.token);
     console.log('result of service api', result);
@@ -85,6 +52,7 @@ const Home = () => {
       setAllServices(result.data);
     }
   };
+  // Function Run when the screen is viewed
   useEffect(() => {
     getPosts();
     getServices();
@@ -132,83 +100,6 @@ const Home = () => {
                 );
               })
             : null}
-          {/* <View style={{width: 80, alignItems: 'center'}}>
-            <TouchableHighlight
-              underlayColor={font_secondary}
-              onPress={() => {
-                setModalVisible(!modalVisible), setOption('2');
-              }}
-              style={styles.circle}>
-              <Image style={styles.circleImg} source={diagonal_arrow} />
-            </TouchableHighlight>
-            <Text style={styles.headerTxt}>Utoka bevakning</Text>
-          </View>
-          <View style={{width: 80, alignItems: 'center'}}>
-            <TouchableHighlight
-              underlayColor={font_secondary}
-              onPress={() => {
-                setModalVisible(!modalVisible), setOption('3');
-              }}
-              style={styles.circle}>
-              <Image style={styles.circleImg} source={size} />
-            </TouchableHighlight>
-            <Text style={styles.headerTxt}>S-XL</Text>
-          </View>
-          <View style={{width: 80, alignItems: 'center'}}>
-            <TouchableHighlight
-              underlayColor={font_secondary}
-              onPress={() => {
-                setOption('4'),
-                  setfilterBool(option === '4' && filterBool ? false : true);
-              }}
-              style={[
-                styles.circle,
-                {
-                  backgroundColor:
-                    option === '4' && filterBool ? primary : white,
-                },
-              ]}>
-              <Image style={styles.circleImg} source={percentage} />
-            </TouchableHighlight>
-            <Text style={styles.headerTxt}>Okopta uppdrag</Text>
-          </View>
-          <View style={{width: 80, alignItems: 'center'}}>
-            <TouchableHighlight
-              underlayColor={font_secondary}
-              onPress={() => {
-                setOption('5'),
-                  setfilterBool(option === '5' && filterBool ? false : true);
-              }}
-              style={[
-                styles.circle,
-                {
-                  backgroundColor:
-                    option === '5' && filterBool ? primary : white,
-                },
-              ]}>
-              <Image style={styles.circleImg} source={heart} />
-            </TouchableHighlight>
-            <Text style={styles.headerTxt}>Favoriter</Text>
-          </View>
-
-          <View style={{width: 80, alignItems: 'center'}}>
-            <TouchableHighlight
-              underlayColor={font_secondary}
-              onPress={() => {
-                setOption('6'),
-                  setfilterBool(option === '6' && filterBool ? false : true);
-              }}
-              style={[
-                styles.circle,
-                {
-                  backgroundColor:
-                    option === '6' && filterBool ? primary : white,
-                },
-              ]}>
-              <Image style={styles.circleImg} source={eye} />
-            </TouchableHighlight>
-            <Text style={styles.headerTxt}>Dolda uppdrag</Text>
-          </View> */}
         </ScrollView>
         {filterBool ? (
           <View
