@@ -16,13 +16,13 @@ import {
   primary,
   secondary_light,
 } from '../../Utils/colors';
-import { bold, medium } from '../../Utils/fontFamily';
-import { font4, font5, font6, font7, font8 } from '../../Utils/fontSize';
-import { link_url, arrow_right } from '../../Utils/images';
-import { useSelector, useDispatch } from 'react-redux';
-import { userLogout } from '../../services/api';
-import { postApi } from '../../services/apiFunction';
-import { logOutUserFromApp } from '../../Redux/actions/authActions';
+import {bold, medium} from '../../Utils/fontFamily';
+import {font4, font5, font6, font7, font8} from '../../Utils/fontSize';
+import {link_url, arrow_right} from '../../Utils/images';
+import {useSelector, useDispatch} from 'react-redux';
+import {userLogout} from '../../services/api';
+import {postApi} from '../../services/apiFunction';
+import {logOutUserFromApp} from '../../Redux/actions/authActions';
 import toast from 'react-native-simple-toast';
 
 import styles from './css';
@@ -61,24 +61,9 @@ let arr = [
     url: false,
   },
   {
-    title: 'My membership',
-    url: true,
-    link: 'https://company.dorunner.se/account/membershipmembership',
-  },
-  {
     title: 'Change password',
     url: true,
     link: 'https://company.dorunner.se/account/passwordpassword',
-  },
-  {
-    title: 'My devices',
-    url: true,
-    link: 'https://company.dorunner.se/account/devices',
-  },
-  {
-    title: 'Credit assignments',
-    url: true,
-    link: 'https://company.dorunner.se/account/credits',
   },
   {
     title: 'Member executives',
@@ -92,10 +77,6 @@ let arr = [
     title: 'Manage notifications',
     url: false,
   },
-  {
-    title: 'Promotions',
-    url: false,
-  },
 ];
 
 const Bottomfifth = props => {
@@ -104,9 +85,7 @@ const Bottomfifth = props => {
     if (type === 'url') {
       return Linking.openURL(link);
     } else {
-      if (title === 'Promotions') {
-        props?.navigation.navigate('Kampanjer');
-      } else if (title === 'Contact Us') {
+      if (title === 'Contact Us') {
         props?.navigation.navigate('Kontakta');
       } else if (title === 'Referals') {
         props?.navigation.navigate('Referals');
@@ -130,9 +109,13 @@ const Bottomfifth = props => {
     }
   };
   const loginSession = useSelector(state => state.authReducers.user);
-  console.log('log out loginSession', loginSession)
+  console.log('log out loginSession', loginSession);
   const logOutUser = async () => {
-    const response = await postApi(userLogout, {}, loginSession?.token ? loginSession?.token : loginSession?.user?.token);
+    const response = await postApi(
+      userLogout,
+      {},
+      loginSession?.token ? loginSession?.token : loginSession?.user?.token,
+    );
     console.log('logout user', response);
     if (response && response.success) {
       toast.show(response.message);
@@ -142,7 +125,7 @@ const Bottomfifth = props => {
     }
   };
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{flex: 1}}>
       <CustomHeader back={false} title={'Mitt Dorunner'} />
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -168,65 +151,61 @@ const Bottomfifth = props => {
             <Text style={styles.boxdesc}>CREDITS</Text>
           </View>
         </View>
-        <View style={{ marginVertical: 20, marginHorizontal: 80 }}>
+        <View style={{marginVertical: 20, marginHorizontal: 80}}>
           <PrimaryButton
             label={'Tomt? Kontakta oss'}
             height={50}
             lblSize={font4}
-            onClick={() => { }}
+            onClick={() => {}}
             borderRadius={30}
             backgroundColor={primary}
             fill={font_black}
             txtFamily={medium}
           />
         </View>
-        {
-          loginSession?.role?.id == 2 ? (
-            <TouchableHighlight
-              underlayColor={secondary_light}
-              onPress={() =>
-                props?.navigation?.navigate('Andrasecondary_lightProfile')
-              }>
-              <>
-                <View style={styles.listMain}>
-                  <View style={{ flex: 0.8 }}>
-                    <Text style={styles.listTxt}>Second profile</Text>
-                  </View>
-                  <View style={styles.listRightView}>
-                    <Image
-                      style={[styles.img, { marginRight: 20 }]}
-                      source={{ uri: 'https://company.dorunner.se/profileprofile' }}
-                    />
-                    <Image style={styles.img} source={arrow_right} />
-                  </View>
+        {loginSession?.role?.id == 2 ? (
+          <TouchableHighlight
+            underlayColor={secondary_light}
+            onPress={() =>
+              props?.navigation?.navigate('Andrasecondary_lightProfile')
+            }>
+            <>
+              <View style={styles.listMain}>
+                <View style={{flex: 0.8}}>
+                  <Text style={styles.listTxt}>Second profile</Text>
                 </View>
-                <View style={styles.line} />
-              </>
-            </TouchableHighlight>
-          ) : loginSession?.company_register_num ? (
-            <TouchableHighlight
-              underlayColor={secondary_light}
-              onPress={() =>
-                props?.navigation?.navigate('AndraProfile')
-              }>
-              <>
-                <View style={styles.listMain}>
-                  <View style={{ flex: 0.8 }}>
-                    <Text style={styles.listTxt}>Andra profile</Text>
-                  </View>
-                  <View style={styles.listRightView}>
-                    <Image
-                      style={[styles.img, { marginRight: 20 }]}
-                      source={{ uri: 'https://company.dorunner.se/profileprofile' }}
-                    />
-                    <Image style={styles.img} source={arrow_right} />
-                  </View>
+                <View style={styles.listRightView}>
+                  <Image
+                    style={[styles.img, {marginRight: 20}]}
+                    source={{uri: 'https://company.dorunner.se/profileprofile'}}
+                  />
+                  <Image style={styles.img} source={arrow_right} />
                 </View>
-                <View style={styles.line} />
-              </>
-            </TouchableHighlight>
-          ) : null
-        }
+              </View>
+              <View style={styles.line} />
+            </>
+          </TouchableHighlight>
+        ) : loginSession?.company_register_num ? (
+          <TouchableHighlight
+            underlayColor={secondary_light}
+            onPress={() => props?.navigation?.navigate('AndraProfile')}>
+            <>
+              <View style={styles.listMain}>
+                <View style={{flex: 0.8}}>
+                  <Text style={styles.listTxt}>Andra profile</Text>
+                </View>
+                <View style={styles.listRightView}>
+                  <Image
+                    style={[styles.img, {marginRight: 20}]}
+                    source={{uri: 'https://company.dorunner.se/profileprofile'}}
+                  />
+                  <Image style={styles.img} source={arrow_right} />
+                </View>
+              </View>
+              <View style={styles.line} />
+            </>
+          </TouchableHighlight>
+        ) : null}
         {arr.length &&
           arr.map((data, ind) => (
             <TouchableHighlight
@@ -237,13 +216,13 @@ const Bottomfifth = props => {
               key={ind}>
               <>
                 <View style={styles.listMain}>
-                  <View style={{ flex: 0.8 }}>
+                  <View style={{flex: 0.8}}>
                     <Text style={styles.listTxt}>{data?.title}</Text>
                   </View>
                   <View style={styles.listRightView}>
                     {data?.url && (
                       <Image
-                        style={[styles.img, { marginRight: 20 }]}
+                        style={[styles.img, {marginRight: 20}]}
                         source={link_url}
                       />
                     )}
@@ -259,13 +238,13 @@ const Bottomfifth = props => {
           underlayColor={secondary_light}
           onPress={() => logOutUser()}>
           <View style={styles.listMain}>
-            <View style={{ flex: 0.8 }}>
+            <View style={{flex: 0.8}}>
               <Text style={styles.listTxt}>Log Out</Text>
             </View>
           </View>
         </TouchableHighlight>
       </ScrollView>
-    </SafeAreaView >
+    </SafeAreaView>
   );
 };
 

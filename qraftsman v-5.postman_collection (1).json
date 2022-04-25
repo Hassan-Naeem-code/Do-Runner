@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "2f6b31fb-fad9-4264-a8e9-0cf3fe4752ca",
+		"name": "qraftsman v-5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "my-referral-url",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base_url}}my-referral-url",
+					"host": [
+						"{{base_url}}my-referral-url"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "client/register - with referral",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Fresh 2",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "sda2dasd@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "text"
+						},
+						{
+							"key": "company_name",
+							"value": "dsd12asd",
+							"type": "text"
+						},
+						{
+							"key": "company_email",
+							"value": "asda2ddsd@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "company_description",
+							"value": "ABCD Description about acompany22",
+							"type": "text"
+						},
+						{
+							"key": "company_register_num",
+							"value": "sd asd2afasdasdasd",
+							"type": "text"
+						},
+						{
+							"key": "company_address",
+							"value": "ABCD ROAD ",
+							"type": "text"
+						},
+						{
+							"key": "billing_address",
+							"value": "XYZ STREET",
+							"type": "text"
+						},
+						{
+							"key": "page_link",
+							"value": "https://www.google.com/",
+							"type": "text"
+						},
+						{
+							"key": "number_of_employees",
+							"value": "150",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "12121312141",
+							"type": "text"
+						},
+						{
+							"key": "city_id",
+							"value": "102985",
+							"description": "get city id from (get-cities) API",
+							"type": "text"
+						},
+						{
+							"key": "zip_code",
+							"value": "75500",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "1",
+							"description": "1 or 0",
+							"type": "text"
+						},
+						{
+							"key": "role_id",
+							"value": "2",
+							"description": "get roles from roles APis , \nRole id 1 = company",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}client/register?referral=8LBzrj5xW7MSsTf94tmP&verify=17",
+					"host": [
+						"{{base_url}}client"
+					],
+					"path": [
+						"register"
+					],
+					"query": [
+						{
+							"key": "referral",
+							"value": "8LBzrj5xW7MSsTf94tmP"
+						},
+						{
+							"key": "verify",
+							"value": "17"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "client/register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Fresh ",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "Fresh@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "text"
+								},
+								{
+									"key": "company_name",
+									"value": "Fresh ",
+									"type": "text"
+								},
+								{
+									"key": "company_email",
+									"value": "Freshemail@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "company_description",
+									"value": "ABCD Description about acompany22",
+									"type": "text"
+								},
+								{
+									"key": "company_register_num",
+									"value": "ABCD123_538212sd12asFreshemail@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "company_address",
+									"value": "ABCD ROAD ",
+									"type": "text"
+								},
+								{
+									"key": "billing_address",
+									"value": "XYZ STREET",
+									"type": "text"
+								},
+								{
+									"key": "page_link",
+									"value": "https://www.google.com/",
+									"type": "text"
+								},
+								{
+									"key": "number_of_employees",
+									"value": "150",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "12345678912",
+									"type": "text"
+								},
+								{
+									"key": "city_id",
+									"value": "1",
+									"description": "get city id from (get-cities) API",
+									"type": "text"
+								},
+								{
+									"key": "zip_code",
+									"value": "75500",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"description": "1 or 0",
+									"type": "text"
+								},
+								{
+									"key": "role_id",
+									"value": "1",
+									"description": "get roles from roles APis , \nRole id 1 = company",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}client/register",
+							"host": [
+								"{{base_url}}client"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 14 Apr 2022 21:19:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=172800"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Expires",
+							"value": "Sat, 16 Apr 2022 21:19:50 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding,User-Agent"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Content-Length",
+							"value": "396"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Successfuly Registered\",\n    \"user\": {\n        \"id\": 8,\n        \"name\": \"Fresh\",\n        \"email\": \"Fresh@gmail.com\",\n        \"company\": {\n            \"name\": \"Fresh\",\n            \"description\": \"ABCD Description about acompany22\",\n            \"company_register_num\": \"ABCD123_538212sd12asFreshemail@gmail.com\",\n            \"company_address\": \"ABCD ROAD\",\n            \"billing_address\": \"XYZ STREET\",\n            \"page_link\": \"https://www.google.com/\",\n            \"number_of_employees\": 150,\n            \"phone\": 12345678912,\n            \"city_id\": 1,\n            \"zip_code\": 75500,\n            \"status\": \"Active\"\n        },\n        \"role\": {\n            \"name\": \"Client / Company\"\n        },\n        \"token\": \"fBTEr8M6ziBqU1gCTFx6cXuU0hNcXGrc2sF2h2mJHdKZ32Kbrt\",\n        \"created_at\": \"Apr, 14 2022 21:19 PM\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
