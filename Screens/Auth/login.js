@@ -1,24 +1,19 @@
-import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  ImageBackground,
-  ScrollView,
-} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, ImageBackground, ScrollView} from 'react-native';
 import Textinput from '../../Components/Input';
 import PrimaryButton from '../../Components/primaryButton';
-import { fontGrayLight, gray, white } from '../../Utils/colors';
-import { font4, font5, font6, font8 } from '../../Utils/fontSize';
-import { useDispatch } from 'react-redux';
+import {fontGrayLight, gray, white} from '../../Utils/colors';
+import {font4, font5, font6, font8} from '../../Utils/fontSize';
+import {useDispatch} from 'react-redux';
 import LoadingButton from '../../Components/loadingButton';
-import { sessionLogin } from '../../Redux/actions/authActions';
-import { userLogin } from '../../services/api';
-import { postApi } from '../../services/apiFunction';
+import {sessionLogin} from '../../Redux/actions/authActions';
+import {userLogin} from '../../services/api';
+import {postApi} from '../../services/apiFunction';
 import toast from 'react-native-simple-toast';
 
-const login = ({ navigation, route }) => {
-  const { as } = route.params;
-  const heading = as == 'user' ? 'Logga in som användare' : 'Logga in som företag';
+const login = ({navigation, route}) => {
+  const {as} = route.params;
+  const heading = as == 'user' ? 'Login As A User' : 'Login As A Company';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -33,7 +28,7 @@ const login = ({ navigation, route }) => {
     if (email !== '' || password !== '') {
       setLoading(!loading);
       console.log('data', data);
-      const { message, success, user } = await postApi(userLogin, data);
+      const {message, success, user} = await postApi(userLogin, data);
       if (success) {
         setLoading(false);
         dispatch(sessionLogin(user));
@@ -46,19 +41,19 @@ const login = ({ navigation, route }) => {
     }
   };
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <ImageBackground
-        style={{ flex: 1, justifyContent: 'center' }}
+        style={{flex: 1, justifyContent: 'center'}}
         resizeMode="cover"
         source={{
           uri: 'https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80',
         }}>
         <ScrollView
           keyboardShouldPersistTaps={'handled'}
-          contentContainerStyle={{ flex: 1 }}>
-          <View style={{ flex: 0.3 }}></View>
-          <View style={{ flex: 0.7, padding: 30, justifyContent: 'center' }}>
-            <Text style={{ fontSize: font8, color: white, textAlign: 'center' }}>
+          contentContainerStyle={{flex: 1}}>
+          <View style={{flex: 0.3}}></View>
+          <View style={{flex: 0.7, padding: 30, justifyContent: 'center'}}>
+            <Text style={{fontSize: font8, color: white, textAlign: 'center'}}>
               {heading}
             </Text>
             <Text
@@ -70,10 +65,10 @@ const login = ({ navigation, route }) => {
               }}>
               Lorem Ipsum.
             </Text>
-            <View style={{ marginTop: 10 }}>
+            <View style={{marginTop: 10}}>
               <Textinput
                 type={'normal'}
-                placeholder={'Skriv in din e-postadress'}
+                placeholder={'Enter Email Address'}
                 borderRadius={25}
                 height={50}
                 onchange={setEmail}
@@ -81,20 +76,20 @@ const login = ({ navigation, route }) => {
                 txtcolor={white}
               />
             </View>
-            <View style={{ marginTop: 20 }}>
+            <View style={{marginTop: 20}}>
               <Textinput
                 type={'normal'}
-                placeholder={'Lösenord'}
+                placeholder={'Password'}
                 borderRadius={25}
                 height={50}
                 onchange={setPassword}
                 value={password}
                 txtcolor={white}
                 secureTextEntry={true}
-              // backColor={gray}
+                // backColor={gray}
               />
             </View>
-            <View style={{ marginTop: 20 }}>
+            <View style={{marginTop: 20}}>
               {loading ? (
                 <LoadingButton
                   height={50}
@@ -115,12 +110,16 @@ const login = ({ navigation, route }) => {
                 />
               )}
             </View>
-            <View style={{ marginTop: 20 }}>
+            <View style={{marginTop: 20}}>
               <PrimaryButton
                 label={'Register'}
                 height={50}
                 lblSize={font5}
-                onClick={() => navigation.navigate(as == 'user' ? 'Register' : 'RegisterCompany')}
+                onClick={() =>
+                  navigation.navigate(
+                    as == 'user' ? 'Register' : 'RegisterCompany',
+                  )
+                }
                 borderRadius={30}
                 backgroundColor={'transparent'}
                 fill={white}

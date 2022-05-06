@@ -130,7 +130,7 @@ const RegisterCompany = ({navigation}) => {
             fontSize: font6,
             marginHorizontal: 40,
           }}>
-          Registra up som företag
+          Register as a company
         </Text>
         <View
           style={{flexDirection: 'row', marginTop: 20, alignItems: 'center'}}>
@@ -156,11 +156,11 @@ const RegisterCompany = ({navigation}) => {
 
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Ange ditt namn *
+            Enter Your Name *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Ange ditt namn'}
+            placeholder={'Enter Your Name'}
             // borderRadius={25}
             height={50}
             onchange={setName}
@@ -172,11 +172,11 @@ const RegisterCompany = ({navigation}) => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Skriv in din e-postadress *
+            Enter Your Email Address *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Skriv in din e-postadress'}
+            placeholder={'Enter Your Email Address'}
             // borderRadius={25}
             height={50}
             onchange={setEmail}
@@ -187,10 +187,10 @@ const RegisterCompany = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>Lösenord *</Text>
+          <Text style={{fontSize: font4, marginBottom: 10}}>Password *</Text>
           <Textinput
             type={'normal'}
-            placeholder={'Lösenord'}
+            placeholder={'Password'}
             // borderRadius={25}
             height={50}
             onchange={setPassword}
@@ -203,11 +203,11 @@ const RegisterCompany = ({navigation}) => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Bekräfta lösenord *
+            Confirm Password *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Bekräfta lösenord'}
+            placeholder={'Confirm Password'}
             // borderRadius={25}
             height={50}
             onchange={setConfirmPassword}
@@ -220,11 +220,11 @@ const RegisterCompany = ({navigation}) => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Företagsnamn *
+            Company Name *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Företagsnamn'}
+            placeholder={'Company Name'}
             // borderRadius={25}
             height={50}
             onchange={setCompanyName}
@@ -236,11 +236,11 @@ const RegisterCompany = ({navigation}) => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Företagets e-post *
+            Company Email *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Företagets e-post'}
+            placeholder={'Company Email'}
             // borderRadius={25}
             height={50}
             onchange={setCompanyEmail}
@@ -252,11 +252,11 @@ const RegisterCompany = ({navigation}) => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Företagsbeskrivning *
+            Company Description *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Företagsbeskrivning'}
+            placeholder={'Company Description'}
             // borderRadius={25}
             height={50}
             onchange={setCompanyDescription}
@@ -268,11 +268,11 @@ const RegisterCompany = ({navigation}) => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Företagsregisternr *
+            Business Register No *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Företagsregisternr'}
+            placeholder={'Business Register No'}
             // borderRadius={25}
             height={50}
             onchange={setCompanyRegisterNumber}
@@ -284,11 +284,11 @@ const RegisterCompany = ({navigation}) => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Företags Adress *
+            Company Address *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Företags Adress'}
+            placeholder={'Company Address'}
             // borderRadius={25}
             height={50}
             onchange={setCompanyAddress}
@@ -300,11 +300,11 @@ const RegisterCompany = ({navigation}) => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Företagets faktureringsadress *
+            The Company's Billing Address *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Företagets faktureringsadress'}
+            placeholder={"The Company's Billing Address"}
             // borderRadius={25}
             height={50}
             onchange={setCompanyBillingAddress}
@@ -316,11 +316,11 @@ const RegisterCompany = ({navigation}) => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Länk till företagssida
+            Link To Company Page
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Länk till företagssida'}
+            placeholder={'Link To Company Page'}
             // borderRadius={25}
             height={50}
             onchange={setPageLink}
@@ -332,11 +332,11 @@ const RegisterCompany = ({navigation}) => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Företag Antal anställda *
+            Company Number Of Employees *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Företag Antal anställda'}
+            placeholder={'Company Number Of Employees'}
             // borderRadius={25}
             height={50}
             onchange={setNumberOfEmployees}
@@ -349,11 +349,11 @@ const RegisterCompany = ({navigation}) => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Företagets telefonnummer *
+            Company Phone Number *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Företagets telefonnummer'}
+            placeholder={'Company Phone Number'}
             // borderRadius={25}
             height={50}
             onchange={setPhone}
@@ -366,14 +366,14 @@ const RegisterCompany = ({navigation}) => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Företagsland (standard)
+            Company Country (standard)
           </Text>
           <Textinput
             type={'normal'}
             placeholder={
               country_get !== null
                 ? country_get?.name
-                : ' Företagsland (standard)'
+                : ' Company Country (standard)'
             }
             // borderRadius={25}
             height={50}
@@ -386,12 +386,12 @@ const RegisterCompany = ({navigation}) => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Företagsstad *
+            Company City *
           </Text>
           <TouchableOpacity activeOpacity={0.9} onPress={openCityVisible}>
             <Textinput
               type={'normal'}
-              placeholder={city_name !== '' ? city_name : 'Företagsstad'}
+              placeholder={city_name !== '' ? city_name : 'Company City'}
               height={50}
               txtcolor={'#000'}
               borderColor={'#000'}
@@ -400,10 +400,10 @@ const RegisterCompany = ({navigation}) => {
           </TouchableOpacity>
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>Postnummer</Text>
+          <Text style={{fontSize: font4, marginBottom: 10}}>ZIP Code</Text>
           <Textinput
             type={'normal'}
-            placeholder={'Postnummer'}
+            placeholder={'ZIP Code'}
             // borderRadius={25}
             height={50}
             onchange={setZipCode}
@@ -434,7 +434,7 @@ const RegisterCompany = ({navigation}) => {
               width: '90%',
               marginLeft: 10,
             }}>
-            Jag accepterar och godkänner integritetspolicyn och villkoren.
+            I accept and accept the privacy policy and the terms.
           </Text>
         </View>
         <View style={{marginHorizontal: 30, marginBottom: 10}}>

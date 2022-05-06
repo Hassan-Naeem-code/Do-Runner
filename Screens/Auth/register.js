@@ -1,10 +1,5 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  ScrollView,
-} from 'react-native';
+import {View, Text, Image, ScrollView} from 'react-native';
 import CustomHeader from '../../Components/customHeader';
 import Textinput from '../../Components/Input';
 import PrimaryButton from '../../Components/primaryButton';
@@ -132,11 +127,11 @@ const Register = ({navigation}) => {
 
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Ange ditt namn *
+            Enter Your Name *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Ange ditt namn'}
+            placeholder={'Enter Your Name'}
             // borderRadius={25}
             height={50}
             onchange={setName}
@@ -148,11 +143,11 @@ const Register = ({navigation}) => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Skriv in din e-postadress *
+            Enter Your Email Address *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Skriv in din e-postadress'}
+            placeholder={'Enter Your Email Address'}
             // borderRadius={25}
             height={50}
             onchange={setEmail}
@@ -163,10 +158,10 @@ const Register = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>Lösenord *</Text>
+          <Text style={{fontSize: font4, marginBottom: 10}}>Password *</Text>
           <Textinput
             type={'normal'}
-            placeholder={'Lösenord'}
+            placeholder={'Password'}
             // borderRadius={25}
             height={50}
             onchange={setPassword}
@@ -179,11 +174,11 @@ const Register = ({navigation}) => {
         </View>
         <View style={{marginTop: 30}}>
           <Text style={{fontSize: font4, marginBottom: 10}}>
-            Bekräfta lösenord *
+            Confirm Password *
           </Text>
           <Textinput
             type={'normal'}
-            placeholder={'Bekräfta lösenord'}
+            placeholder={'Confirm Password'}
             // borderRadius={25}
             height={50}
             onchange={setConfirmPassword}
@@ -214,7 +209,7 @@ const Register = ({navigation}) => {
               width: '90%',
               marginLeft: 10,
             }}>
-            Jag accepterar och godkänner integritetspolicyn och villkoren.
+            I accept and accept the privacy policy and the terms.
           </Text>
         </View>
         <View style={{marginHorizontal: 30, marginBottom: 10}}>
