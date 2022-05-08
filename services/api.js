@@ -7,4 +7,7 @@ export const userLogin = 'login';
 export const getAllPosts = 'all-posts';
 export const getAllServices = 'services';
 export const postDet = 'post-detail/';
+export const contactUsOption = 'get-contact-us-options';
+export const submitContactUs = 'submit-contact-us';
+export const requestReviews = 'request-reviews';
 export const userLogout = 'logout';
