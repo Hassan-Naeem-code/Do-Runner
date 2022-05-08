@@ -167,7 +167,7 @@ const Bottomfifth = props => {
           <TouchableHighlight
             underlayColor={secondary_light}
             onPress={() =>
-              props?.navigation?.navigate('Andrasecondary_lightProfile')
+              props?.navigation?.navigate('AndraProfile')
             }>
             <>
               <View style={styles.listMain}>
