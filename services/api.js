@@ -15,4 +15,5 @@ export const deleteReference = 'delete-reference';
 export const addReference = 'submit-reference';
 export const updateReference = 'update-reference';
 export const myReferralUrl = 'my-referral-url';
+export const addPaymentMethod = 'save-payment-method';
 export const userLogout = 'logout';

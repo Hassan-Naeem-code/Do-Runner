@@ -1,13 +1,37 @@
 import React, {memo} from 'react';
 import {View, Text, TouchableHighlight, ScrollView} from 'react-native';
 import Textinput from './Input';
+import LoadingButton from './loadingButton';
 import PrimaryButton from './primaryButton';
 import Overlay from 'react-native-modal-overlay';
 import {font4, font5} from '../Utils/fontSize';
 import {primary} from '../Utils/colors';
 import styles from '../Screens/Home/css';
 
-const CardModal = ({onclose, modalVisible}) => {
+const CardModal = ({
+  onclose,
+  modalVisible,
+  cardHolderName,
+  setCardHolderName,
+  cardHolderAddress,
+  setCardHolderAddress,
+  cardHolderZipCode,
+  setCardHolderZipCode,
+  cardHolderPostOffice,
+  setCardHolderPostOffice,
+  cardHolderEmailAddress,
+  setCardHolderEmailAddress,
+  cardHolderCardNumber,
+  setCardHolderCardNumber,
+  cardHolderCardCvc,
+  setCardHolderCardCvc,
+  cardHolderCardExpiryMonth,
+  setCardHolderCardExpiryMonth,
+  cardHolderCardExpiryYear,
+  setCardHolderCardExpiryYear,
+  active,
+  submitCardDetails,
+}) => {
   return (
     <Overlay
       visible={modalVisible}
@@ -43,6 +67,8 @@ const CardModal = ({onclose, modalVisible}) => {
               height={50}
               txtcolor={'#000'}
               borderColor={'#000'}
+              value={cardHolderName}
+              onchange={setCardHolderName}
               // backColor={gray}
             />
           </View>
@@ -55,6 +81,8 @@ const CardModal = ({onclose, modalVisible}) => {
               height={50}
               txtcolor={'#000'}
               borderColor={'#000'}
+              value={cardHolderAddress}
+              onchange={setCardHolderAddress}
               // backColor={gray}
             />
           </View>
@@ -70,6 +98,8 @@ const CardModal = ({onclose, modalVisible}) => {
                 height={50}
                 txtcolor={'#000'}
                 borderColor={'#000'}
+                value={cardHolderZipCode}
+                onchange={setCardHolderZipCode}
                 // backColor={gray}
               />
             </View>
@@ -85,6 +115,8 @@ const CardModal = ({onclose, modalVisible}) => {
                 height={50}
                 txtcolor={'#000'}
                 borderColor={'#000'}
+                value={cardHolderPostOffice}
+                onchange={setCardHolderPostOffice}
                 // backColor={gray}
               />
             </View>
@@ -98,6 +130,8 @@ const CardModal = ({onclose, modalVisible}) => {
               height={50}
               txtcolor={'#000'}
               borderColor={'#000'}
+              value={cardHolderEmailAddress}
+              onchange={setCardHolderEmailAddress}
               // backColor={gray}
             />
           </View>
@@ -112,37 +146,59 @@ const CardModal = ({onclose, modalVisible}) => {
               height={50}
               txtcolor={'#000'}
               borderColor={'#000'}
+              value={cardHolderCardNumber}
+              onchange={setCardHolderCardNumber}
               // backColor={gray}
             />
           </View>
           <View style={{flexDirection: 'row', marginVertical: 5}}>
             <View style={{flex: 0.45}}>
               <Text style={{fontSize: font4, marginBottom: 10}}>
-                VALIDITY *
+                VALIDITY MONTH *
               </Text>
               <Textinput
                 type={'normal'}
-                placeholder={'VALIDITY *'}
+                placeholder={'VALIDITY MONTH *'}
                 borderRadius={10}
                 height={50}
                 txtcolor={'#000'}
                 borderColor={'#000'}
+                value={cardHolderCardExpiryMonth}
+                onchange={setCardHolderCardExpiryMonth}
                 // backColor={gray}
               />
             </View>
             <View style={{flex: 0.1}}></View>
             <View style={{flex: 0.45}}>
-              <Text style={{fontSize: font4, marginBottom: 10}}>CVC *</Text>
+              <Text style={{fontSize: font4, marginBottom: 10}}>
+                VALIDITY YEAR *
+              </Text>
               <Textinput
                 type={'normal'}
-                placeholder={'CVC *'}
+                placeholder={'VALIDITY YEAR *'}
                 borderRadius={10}
                 height={50}
                 txtcolor={'#000'}
                 borderColor={'#000'}
+                value={cardHolderCardExpiryYear}
+                onchange={setCardHolderCardExpiryYear}
                 // backColor={gray}
               />
             </View>
+          </View>
+          <View style={{marginVertical: 5}}>
+            <Text style={{fontSize: font4, marginBottom: 10}}>CVC *</Text>
+            <Textinput
+              type={'normal'}
+              placeholder={'CVC *'}
+              borderRadius={10}
+              height={50}
+              txtcolor={'#000'}
+              borderColor={'#000'}
+              value={cardHolderCardCvc}
+              onchange={setCardHolderCardCvc}
+              // backColor={gray}
+            />
           </View>
           <View style={{paddingHorizontal: 20, marginVertical: 10}}>
             <View
@@ -152,15 +208,25 @@ const CardModal = ({onclose, modalVisible}) => {
                 marginTop: 10,
               }}>
               <View style={{flex: 0.8}}>
-                <PrimaryButton
-                  label={'Add Credit Card'}
-                  height={50}
-                  lblSize={font5}
-                  borderRadius={30}
-                  backgroundColor={primary}
-                  fill={'#000'}
-                  onClick={onclose}
-                />
+                {active ? (
+                  <LoadingButton
+                    height={50}
+                    lblSize={font5}
+                    borderRadius={30}
+                    backgroundColor={'yellow'}
+                    fill={'#000'}
+                  />
+                ) : (
+                  <PrimaryButton
+                    label={'Add Credit Card'}
+                    height={50}
+                    lblSize={font5}
+                    borderRadius={30}
+                    backgroundColor={primary}
+                    fill={'#000'}
+                    onClick={e => submitCardDetails(e)}
+                  />
+                )}
               </View>
             </View>
           </View>
