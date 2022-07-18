@@ -70,7 +70,7 @@ const card = ({item}) => {
                 source={calendar}
               />
               <Text style={{fontFamily: regular, fontSize: font4}}>
-                {item?.for_how_long.substr(0, 10)}
+                {item?.for_how_long && item?.for_how_long.substr(0, 10)}
               </Text>
             </View>
             <View

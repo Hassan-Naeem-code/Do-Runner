@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {View, Text, SafeAreaView} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, SafeAreaView, ActivityIndicator} from 'react-native';
 import {useSelector} from 'react-redux';
 import CommonHeader from '../../Components/commonHeader';
 import CardModal from '../../Components/addCardModal';
@@ -9,9 +9,9 @@ import {medium} from '../../Utils/fontFamily';
 import {font4, font5, font6} from '../../Utils/fontSize';
 import {
   addPaymentMethod,
-  myReferences,
-  deleteReference,
-  updateReference,
+  getMyPaymentMethod,
+  updateMyPaymentMethod,
+  deleteMyPaymentMethod,
 } from '../../services/api';
 import {getApi, postApi} from '../../services/apiFunction';
 import Toast from 'react-native-simple-toast';
@@ -20,6 +20,9 @@ import styles from './css';
 const Balance = ({navigation}) => {
   const loginSession = useSelector(state => state.authReducers.user);
   const [selectType, setSelectType] = useState('services');
+  const [myPaymentMethods, setMyPaymentMethods] = useState([]);
+  const [prefabText, setPrefabText] = useState('');
+  const [myCardsLoading, setmyCardsLoading] = useState(false);
   const [cardHolderName, setCardHolderName] = useState('');
   const [cardHolderAddress, setCardHolderAddress] = useState('');
   const [cardHolderZipCode, setCardHolderZipCode] = useState('');
@@ -34,6 +37,32 @@ const Balance = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
   const toggleAddCard = () => {
     setModalVisible(!modalVisible);
+  };
+  const getCards = async () => {
+    setmyCardsLoading(!myCardsLoading);
+    try {
+      const {success, data, message} = await getApi(
+        getMyPaymentMethod,
+        loginSession?.token,
+      );
+      console.log('inside try',success, data, message)
+      if (success) {
+        setMyPaymentMethods(data);
+        setPrefabText(message);
+      } else {
+        setPrefabText(message);
+      }
+    } catch (error) {
+      const {message, success} = error;
+      console.log('error', error);
+      if (message) {
+        setPrefabText(message);
+      } else {
+        setPrefabText(message);
+      }
+    } finally {
+      setmyCardsLoading(false);
+    }
   };
   const submitCardDetails = async () => {
     if (cardHolderName == '')
@@ -61,7 +90,7 @@ const Balance = ({navigation}) => {
       address: cardHolderAddress,
       zip_code: Number(cardHolderZipCode),
       post_office: cardHolderPostOffice,
-      card_number: Number(cardHolderCardNumber),
+      card_number: cardHolderCardNumber,
       expiry_year: Number(cardHolderCardExpiryYear),
       expiry_month: Number(cardHolderCardExpiryMonth),
       cvc: Number(cardHolderCardCvc),
@@ -72,14 +101,21 @@ const Balance = ({navigation}) => {
         params,
         loginSession?.token,
       );
+      console.log('try response', data, success, message);
       if (success) {
         Toast.show(message);
+        toggleAddCard();
         navigation.goBack();
       } else {
-        Toast.show(message);
+        if (Array.isArray(message)) {
+          Toast.show(message[0]);
+        } else {
+          Toast.show(message);
+        }
       }
     } catch (error) {
       const {message, success} = error;
+      console.log('catch response', message);
       if (message) {
         Toast.show(message);
       } else {
@@ -89,6 +125,10 @@ const Balance = ({navigation}) => {
       setActive(false);
     }
   };
+  useEffect(() => {
+    getCards();
+  }, []);
+  console.log('prefabText',prefabText)
   return (
     <SafeAreaView style={{flex: 1}}>
       <CommonHeader title={'Balance'} />
@@ -132,6 +172,39 @@ const Balance = ({navigation}) => {
             </View>
           </View>
         </View>
+        {myPaymentMethods.length ? (
+          myPaymentMethods.map((item, index) => {
+            return <>
+            </>;
+          })
+        ) : (
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginVertical: '20%',
+            }}>
+            {myCardsLoading ? (
+              <ActivityIndicator
+                size="large"
+                color={'#000'}
+                style={{
+                  fontSize: 16,
+                  fontWeight: 'bold',
+                }}
+              />
+            ) : (
+              <Text
+                style={{
+                  color: '#000',
+                  fontSize: 16,
+                }}>
+                {prefabText}
+              </Text>
+            )}
+          </View>
+        )}
       </View>
       <CardModal
         modalVisible={modalVisible}
