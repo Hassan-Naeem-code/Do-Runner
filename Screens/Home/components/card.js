@@ -55,7 +55,12 @@ const card = ({item}) => {
                 style={{width: 14, height: 14, marginRight: 10}}
                 source={user}
               />
-              <Text style={{fontFamily: regular, fontSize: font4}}>
+              <Text
+                style={{
+                  fontFamily: regular,
+                  fontSize: font4,
+                  color: font_black,
+                }}>
                 {item?.name}
               </Text>
             </View>
@@ -69,7 +74,12 @@ const card = ({item}) => {
                 style={{width: 14, height: 14, marginRight: 10}}
                 source={calendar}
               />
-              <Text style={{fontFamily: regular, fontSize: font4}}>
+              <Text
+                style={{
+                  fontFamily: regular,
+                  fontSize: font4,
+                  color: font_black,
+                }}>
                 {item?.for_how_long && item?.for_how_long.substr(0, 10)}
               </Text>
             </View>
@@ -83,7 +93,12 @@ const card = ({item}) => {
                 style={{width: 14, height: 14, marginRight: 10}}
                 source={dollar_bag}
               />
-              <Text style={{fontFamily: regular, fontSize: font4}}>
+              <Text
+                style={{
+                  fontFamily: regular,
+                  fontSize: font4,
+                  color: font_black,
+                }}>
                 {item?.latitude} - {item?.longitude} kr
               </Text>
             </View>

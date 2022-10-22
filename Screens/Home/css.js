@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View} from 'react-native';
 import {font_black, font_secondary, secondary, white} from '../../Utils/colors';
-import { medium } from '../../Utils/fontFamily';
+import {medium} from '../../Utils/fontFamily';
 import {font3, font4} from '../../Utils/fontSize';
 
 export default StyleSheet.create({
@@ -33,8 +33,14 @@ export default StyleSheet.create({
     marginTop: 5,
     width: 70,
     textAlign: 'center',
+    color: font_black,
   },
-  modalHeadingTxt: {fontFamily: medium, fontSize: font4, flex: 0.9},
+  modalHeadingTxt: {
+    fontFamily: medium,
+    fontSize: font4,
+    flex: 0.9,
+    color: font_black,
+  },
   modalHeaderView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -55,8 +61,13 @@ export default StyleSheet.create({
     padding: 10,
     borderRadius: 10,
   },
-  filterTxt: {fontFamily: medium, fontSize: font4},
-  detailClip: {fontFamily: medium, fontSize: font3, marginLeft: 10},
+  filterTxt: {fontFamily: medium, fontSize: font4, color: font_black},
+  detailClip: {
+    fontFamily: medium,
+    fontSize: font3,
+    marginLeft: 10,
+    color: font_black,
+  },
   filterView: {
     backgroundColor: white,
     flexDirection: 'row',

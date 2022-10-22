@@ -173,7 +173,14 @@ const References = ({navigation}) => {
         {activeAddReferalProjects && (
           <View style={{paddingHorizontal: 10, marginVertical: 25}}>
             <Card style={{padding: 20}}>
-              <Text style={{fontFamily: medium, fontSize: font4}}>Project</Text>
+              <Text
+                style={{
+                  fontFamily: medium,
+                  fontSize: font4,
+                  color: font_black,
+                }}>
+                Project
+              </Text>
               <Text
                 style={{
                   fontFamily: medium,
@@ -183,7 +190,12 @@ const References = ({navigation}) => {
                 New Project
               </Text>
               <View style={{marginTop: 20}}>
-                <Text style={{fontSize: font4, marginBottom: 10}}>
+                <Text
+                  style={{
+                    fontSize: font4,
+                    marginBottom: 10,
+                    color: font_black,
+                  }}>
                   PROJECT TITLE
                 </Text>
                 <Textinput
@@ -197,7 +209,12 @@ const References = ({navigation}) => {
                 />
               </View>
               <View style={{marginTop: 20}}>
-                <Text style={{fontSize: font4, marginBottom: 10}}>
+                <Text
+                  style={{
+                    fontSize: font4,
+                    marginBottom: 10,
+                    color: font_black,
+                  }}>
                   DESCRIPTION
                 </Text>
                 <Textinput
@@ -315,7 +332,12 @@ const References = ({navigation}) => {
                               paddingHorizontal: 15,
                               borderRadius: 25,
                             }}>
-                            <Text style={{fontFamily: medium, fontSize: font3}}>
+                            <Text
+                              style={{
+                                fontFamily: medium,
+                                fontSize: font3,
+                                color: font_black,
+                              }}>
                               Exclaimed
                             </Text>
                           </TouchableOpacity>

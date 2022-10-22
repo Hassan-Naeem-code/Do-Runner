@@ -3,7 +3,7 @@ import {View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import CustomHeader from '../../Components/customHeader';
 import Textinput from '../../Components/Input';
 import PrimaryButton from '../../Components/primaryButton';
-import {white} from '../../Utils/colors';
+import {white, font_black} from '../../Utils/colors';
 import {font4, font5, font6} from '../../Utils/fontSize';
 import {tick} from '../../Utils/images';
 import CheckBox from '@react-native-community/checkbox';
@@ -155,7 +155,7 @@ const RegisterCompany = ({navigation}) => {
         </View>
 
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Enter Your Name *
           </Text>
           <Textinput
@@ -171,7 +171,7 @@ const RegisterCompany = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Enter Your Email Address *
           </Text>
           <Textinput
@@ -187,7 +187,9 @@ const RegisterCompany = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>Password *</Text>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
+            Password *
+          </Text>
           <Textinput
             type={'normal'}
             placeholder={'Password'}
@@ -202,7 +204,7 @@ const RegisterCompany = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Confirm Password *
           </Text>
           <Textinput
@@ -219,7 +221,7 @@ const RegisterCompany = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Company Name *
           </Text>
           <Textinput
@@ -235,7 +237,7 @@ const RegisterCompany = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Company Email *
           </Text>
           <Textinput
@@ -251,7 +253,7 @@ const RegisterCompany = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Company Description *
           </Text>
           <Textinput
@@ -267,7 +269,7 @@ const RegisterCompany = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Business Register No *
           </Text>
           <Textinput
@@ -283,7 +285,7 @@ const RegisterCompany = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Company Address *
           </Text>
           <Textinput
@@ -299,7 +301,7 @@ const RegisterCompany = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             The Company's Billing Address *
           </Text>
           <Textinput
@@ -315,7 +317,7 @@ const RegisterCompany = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Link To Company Page
           </Text>
           <Textinput
@@ -331,7 +333,7 @@ const RegisterCompany = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Company Number Of Employees *
           </Text>
           <Textinput
@@ -348,7 +350,7 @@ const RegisterCompany = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Company Phone Number *
           </Text>
           <Textinput
@@ -365,7 +367,7 @@ const RegisterCompany = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Company Country (standard)
           </Text>
           <Textinput
@@ -385,7 +387,7 @@ const RegisterCompany = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Company City *
           </Text>
           <TouchableOpacity activeOpacity={0.9} onPress={openCityVisible}>
@@ -400,7 +402,9 @@ const RegisterCompany = ({navigation}) => {
           </TouchableOpacity>
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>ZIP Code</Text>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
+            ZIP Code
+          </Text>
           <Textinput
             type={'normal'}
             placeholder={'ZIP Code'}

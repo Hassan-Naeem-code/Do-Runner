@@ -63,7 +63,12 @@ const Detail = ({navigation, route}) => {
         <View style={{padding: 10}}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <View style={{flex: 1}}>
-              <Text style={{fontFamily: medium, fontSize: font4}}>
+              <Text
+                style={{
+                  fontFamily: medium,
+                  fontSize: font4,
+                  color: font_black,
+                }}>
                 {postDetail?.name}
               </Text>
             </View>
@@ -147,9 +152,7 @@ const Detail = ({navigation, route}) => {
         </View>
         {/* <Image
           style={{width: '100%', height: 250, backgroundColor: 'red'}}
-          source={{
-            uri: 'https://media.istockphoto.com/photos/male-architect-hands-making-model-house-picture-id823322674?k=20&m=823322674&s=612x612&w=0&h=mt7tQAJquJvJzon4V1OQ5E6ReqbJ2nc1zfsxZgvlyfA=',
-          }}
+          source={require('../../assets/second.jpg')}
         /> */}
         <View style={{marginTop: '10%', height: 200}}>
           <Map />

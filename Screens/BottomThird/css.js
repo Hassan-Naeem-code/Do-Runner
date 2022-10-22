@@ -55,5 +55,6 @@ export default StyleSheet.create({
     marginTop: 5,
     width: 70,
     textAlign: 'center',
+    color: font_black
   },
 });

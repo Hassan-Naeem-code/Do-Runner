@@ -189,7 +189,7 @@ const Kategorier = props => {
           </>
           )}
         </View>
-        <Text style={{textAlign:'center',fontSize:font3,fontFamily:regular}}>Du kan alltid andra det har i efterhand under installningar</Text>
+        <Text style={{textAlign:'center',fontSize:font3,fontFamily:regular,color: font_black}}>Du kan alltid andra det har i efterhand under installningar</Text>
       </View>
      
       <View style={{marginHorizontal: 10, marginTop: 20}}>

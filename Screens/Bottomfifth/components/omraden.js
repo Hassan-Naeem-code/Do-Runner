@@ -92,7 +92,7 @@ const Omraden = props => {
           justifyContent: 'space-between',
         }}>
         <View style={{flex: 0.48}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>POSTNUMMER</Text>
+          <Text style={{fontSize: font4, marginBottom: 10,color: font_black}}>POSTNUMMER</Text>
           <Textinput
             type={'normal'}
             placeholder={'Postnummer'}
@@ -106,7 +106,7 @@ const Omraden = props => {
           />
         </View>
         <View style={{flex: 0.48}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>RADIE</Text>
+          <Text style={{fontSize: font4, marginBottom: 10,color: font_black}}>RADIE</Text>
           <Textinput
             type={'normal'}
             placeholder={'Radie (km)'}

@@ -5,7 +5,7 @@ import LoadingButton from './loadingButton';
 import PrimaryButton from './primaryButton';
 import Overlay from 'react-native-modal-overlay';
 import {font4, font5} from '../Utils/fontSize';
-import {primary} from '../Utils/colors';
+import {primary, font_black} from '../Utils/colors';
 import styles from '../Screens/Home/css';
 
 const CardModal = ({
@@ -57,7 +57,8 @@ const CardModal = ({
         <View style={[styles.line, {marginVertical: 5}]} />
         <ScrollView>
           <View style={{marginVertical: 5}}>
-            <Text style={{fontSize: font4, marginBottom: 10}}>
+            <Text
+              style={{fontSize: font4, marginBottom: 10, color: font_black}}>
               CARDHOLDER NAME *
             </Text>
             <Textinput
@@ -73,7 +74,10 @@ const CardModal = ({
             />
           </View>
           <View style={{marginVertical: 5}}>
-            <Text style={{fontSize: font4, marginBottom: 10}}>ADDRESS *</Text>
+            <Text
+              style={{fontSize: font4, marginBottom: 10, color: font_black}}>
+              ADDRESS *
+            </Text>
             <Textinput
               type={'normal'}
               placeholder={'ADDRESS *'}
@@ -88,7 +92,8 @@ const CardModal = ({
           </View>
           <View style={{flexDirection: 'row', marginVertical: 5}}>
             <View style={{flex: 0.45}}>
-              <Text style={{fontSize: font4, marginBottom: 10}}>
+              <Text
+                style={{fontSize: font4, marginBottom: 10, color: font_black}}>
                 ZIP CODE *
               </Text>
               <Textinput
@@ -105,7 +110,8 @@ const CardModal = ({
             </View>
             <View style={{flex: 0.1}}></View>
             <View style={{flex: 0.45}}>
-              <Text style={{fontSize: font4, marginBottom: 10}}>
+              <Text
+                style={{fontSize: font4, marginBottom: 10, color: font_black}}>
                 POST OFFICE *
               </Text>
               <Textinput
@@ -122,7 +128,10 @@ const CardModal = ({
             </View>
           </View>
           <View style={{marginVertical: 5}}>
-            <Text style={{fontSize: font4, marginBottom: 10}}>EMAIL *</Text>
+            <Text
+              style={{fontSize: font4, marginBottom: 10, color: font_black}}>
+              EMAIL *
+            </Text>
             <Textinput
               type={'normal'}
               placeholder={'EMAIL *'}
@@ -136,7 +145,8 @@ const CardModal = ({
             />
           </View>
           <View style={{marginVertical: 5}}>
-            <Text style={{fontSize: font4, marginBottom: 10}}>
+            <Text
+              style={{fontSize: font4, marginBottom: 10, color: font_black}}>
               CARD NUMBER *
             </Text>
             <Textinput
@@ -153,7 +163,8 @@ const CardModal = ({
           </View>
           <View style={{flexDirection: 'row', marginVertical: 5}}>
             <View style={{flex: 0.45}}>
-              <Text style={{fontSize: font4, marginBottom: 10}}>
+              <Text
+                style={{fontSize: font4, marginBottom: 10, color: font_black}}>
                 VALIDITY MONTH *
               </Text>
               <Textinput
@@ -170,7 +181,8 @@ const CardModal = ({
             </View>
             <View style={{flex: 0.1}}></View>
             <View style={{flex: 0.45}}>
-              <Text style={{fontSize: font4, marginBottom: 10}}>
+              <Text
+                style={{fontSize: font4, marginBottom: 10, color: font_black}}>
                 VALIDITY YEAR *
               </Text>
               <Textinput
@@ -187,7 +199,10 @@ const CardModal = ({
             </View>
           </View>
           <View style={{marginVertical: 5}}>
-            <Text style={{fontSize: font4, marginBottom: 10}}>CVC *</Text>
+            <Text
+              style={{fontSize: font4, marginBottom: 10, color: font_black}}>
+              CVC *
+            </Text>
             <Textinput
               type={'normal'}
               placeholder={'CVC *'}

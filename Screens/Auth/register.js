@@ -3,7 +3,7 @@ import {View, Text, Image, ScrollView} from 'react-native';
 import CustomHeader from '../../Components/customHeader';
 import Textinput from '../../Components/Input';
 import PrimaryButton from '../../Components/primaryButton';
-import {fontGrayLight, gray, white} from '../../Utils/colors';
+import {fontGrayLight, gray, white, font_black} from '../../Utils/colors';
 import {font4, font5, font6, font8} from '../../Utils/fontSize';
 import {tick} from '../../Utils/images';
 import CheckBox from '@react-native-community/checkbox';
@@ -126,7 +126,7 @@ const Register = ({navigation}) => {
         </View>
 
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Enter Your Name *
           </Text>
           <Textinput
@@ -142,7 +142,7 @@ const Register = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Enter Your Email Address *
           </Text>
           <Textinput
@@ -158,7 +158,9 @@ const Register = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>Password *</Text>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
+            Password *
+          </Text>
           <Textinput
             type={'normal'}
             placeholder={'Password'}
@@ -173,7 +175,7 @@ const Register = ({navigation}) => {
           />
         </View>
         <View style={{marginTop: 30}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Confirm Password *
           </Text>
           <Textinput

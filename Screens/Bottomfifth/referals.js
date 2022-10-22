@@ -120,7 +120,7 @@ const Referals = () => {
           </View>
         </View>
         <View style={{marginTop: 30, position: 'relative'}}>
-          <Text style={{fontSize: font4, marginBottom: 10}}>
+          <Text style={{fontSize: font4, marginBottom: 10, color: font_black}}>
             Your recruiting link
           </Text>
           <Textinput

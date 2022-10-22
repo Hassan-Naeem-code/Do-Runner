@@ -66,7 +66,10 @@ const Home = () => {
       />
       <View style={{padding: 20, backgroundColor: secondary}}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Text style={{fontFamily: medium, fontSize: font5}}>Hej</Text>
+          <Text
+            style={{fontFamily: medium, fontSize: font5, color: font_black}}>
+            Hej
+          </Text>
           <Image
             style={{width: 20, height: 20, marginLeft: 10}}
             source={waving_hand}
@@ -124,7 +127,13 @@ const Home = () => {
         <FlatList
           showsVerticalScrollIndicator={false}
           ListHeaderComponent={() => (
-            <Text style={{padding: 20, fontFamily: regular, fontSize: font5}}>
+            <Text
+              style={{
+                padding: 20,
+                fontFamily: regular,
+                fontSize: font5,
+                color: font_black,
+              }}>
               {allPosts?.length} UPPDRAG
             </Text>
           )}

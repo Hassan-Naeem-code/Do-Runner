@@ -92,7 +92,8 @@ const Kontakta = ({navigation}) => {
         {active ? (
           <View style={{paddingHorizontal: 20}}>
             <View style={{marginTop: 30}}>
-              <Text style={{fontSize: font4, marginBottom: 10}}>
+              <Text
+                style={{fontSize: font4, marginBottom: 10, color: font_black}}>
                 Enter Questions *
               </Text>
               <Textinput
